@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car-rent-main-page</title>
     <link rel="stylesheet" href="mainpage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Roboto', sans-serif; }
@@ -15,7 +16,8 @@
     <section class="header">
         <nav>
             <a href="mainpage.html"><img src="assets/vf.png"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
+                <i class="bi bi-x-lg" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="">Trang chủ</a></li>
                     <li><a href="">Về chúng tôi</a></li>
@@ -24,7 +26,69 @@
                     <li><a href="">Đăng nhập</a></li>
                 </ul>
             </div>
+            <i class="bi bi-list" onclick="showMenu()"></i>
         </nav>
+
+        <div class = "slogan">
+            <h1>Thuê xe dễ dàng - hành trình trọn vẹn</h1>
+            <hr>
+            <p>Trải nghiệm sự khác biệt từ các xe gia đình đời mới khắp Việt Nam</p>
+            <a href="" class="hero-btn">Khám phá cùng chúng tôi</a>
+        </div>
     </section>
+
+    <!---Xe dành cho bạn--->
+    <section class="outstanding">
+        <h1>Xe Dành Cho Bạn</h1>
+        <div class="car-container">
+            <div class="car-card">
+                <img src="assets\ford_ranger.png" alt="Ford Ranger">
+                <div class="car-info">
+                    <h3>FORD RANGER WILDTRAK 4x4 2016</h3>
+                    <p>Số tự động • 4 chỗ • Dầu diesel</p>
+                    <div class="tags">
+                        <span class="tag">Miễn thế chấp</span>
+                        <span class="tag">Giao xe tận nơi</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="car-card">
+                <img src="assets\mitsubishi_pajero.jpg" alt="Mitsubishi Pajero">
+                <div class="car-info">
+                    <h3>MITSUBISHI PAJERO 2016</h3>
+                    <p>Số sàn • 7 chỗ • Dầu diesel</p>
+                    <div class="tags">
+                        <span class="tag">Miễn thế chấp</span>
+                        <span class="tag">Giao xe tận nơi</span>
+                    </div>
+                    <span class="discount">Giảm 16%</span>
+                </div>
+            </div>
+        
+            <div class="car-card">
+                <img src="assets\toyota_innova.jpg" alt="Toyota Innova">
+                <div class="car-info">
+                    <h3>TOYOTA INNOVA 2016</h3>
+                    <p>Số sàn • 8 chỗ • Xăng</p>
+                    <div class="tags">
+                        <span class="tag">Miễn thế chấp</span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <script>
+        //toggle menu
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right ="0";
+        }
+        function hideMenu(){
+            navLinks.style.right ="-200px";
+        }
+
+    </script>
+
 </body>
 </html>
