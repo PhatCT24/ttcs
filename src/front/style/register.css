@@ -1,0 +1,89 @@
+.register-form .form-group {
+    margin-bottom: 16px;
+}
+
+/* Checkbox styles */
+.checkbox-group {
+    margin: 20px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    background: white;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+}
+
+.checkbox-input:checked + .checkmark {
+    background: #5CB85C;
+    border-color: #5CB85C;
+}
+
+.checkbox-input:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.terms-link,
+.privacy-link {
+    color: #5CB85C;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.terms-link:hover,
+.privacy-link:hover {
+    color: #4a9f4a;
+    text-decoration: underline;
+}
+
+/* Register button specific styling */
+.register-btn {
+    margin-top: 16px;
+}
+
+/* Animation for modal appearance */
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.login-container {
+    animation: modalAppear 0.3s ease-out;
+}
