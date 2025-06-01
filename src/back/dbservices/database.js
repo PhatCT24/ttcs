@@ -8,3 +8,14 @@ const pool = mysql.createPool({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
 }).promise()
+
+pool.getConnection()
+    .then(conn => {
+        console.log('Connected to the MySQL database');
+        conn.release();
+    })
+    .catch(error => {
+        console.error('Error connecting to the database:', error);
+});
+
+export { pool };

@@ -24,3 +24,20 @@ export async function checkLogin(username, password){
 
     return { ...user, role };
 }
+
+export async function addThanhvien(username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi) {
+    try {
+        const [idResult] = await pool.query('SELECT MAX(ID) AS maxId FROM tblThanhVien');
+        const newId = idResult[0].maxId + 1;
+
+        const [result] = await pool.query(`
+            INSERT INTO tblThanhVien (ID, username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        `, [newId, username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi]);
+
+        return { newId };
+    } catch (error) {
+        console.error(error);
+        throw new Error('Thêm thành viên thất bại');
+    }
+}

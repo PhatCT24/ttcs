@@ -1,10 +1,12 @@
-import express, { json } from 'express';
+import express, {json} from 'express';
 
 const app = express();
 
-// import {thanhvienRouter} from './src/back/routers/thanhvienRouter.js';
+import thanhvienRouter from './src/back/routers/thanhvienRouter.js';
 
 app.use(json());
+
+app.use('/api/thanhvien', thanhvienRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -13,4 +15,4 @@ app.use((err, req, res, next) => {
 
 app.listen(8080, () => {
   console.log('Server is running on port 8080');
-});
+}); 

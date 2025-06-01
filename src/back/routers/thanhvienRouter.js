@@ -1,8 +1,8 @@
-const express = require('express');
-const thanhvienController = require('./src/back/controllers/thanhvienController.js');
-const router = express.Router();
+import { Router } from 'express';
+import {login, register, logout} from '../controllers/thanhvienController.js';
+const router = Router();
 
-router.post('/login', thanhvienController.login);
-// router.post('/register', thanhvienController.register);
-
-module.exports = router;
+router.post('/login', login);
+router.post('/register', register);
+router.post('/logout', logout)
+export default router;
