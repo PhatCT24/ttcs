@@ -1,9 +1,10 @@
-const express = require('express');
+import express, { json } from 'express';
+
 const app = express();
 
-const thanhvienRouter = require('./routers/thanhvienRouter.js');
+// import {thanhvienRouter} from './src/back/routers/thanhvienRouter.js';
 
-app.use(express.json());
+app.use(json());
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
