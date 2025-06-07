@@ -11,14 +11,14 @@ export const login = async (req, res) => {
             }, process.env.JWT_SECRET, {
                 expiresIn: '7days'
             });
-            res.status(200).send({ message: 'Login successful', token });
+            res.status(200).send({ message: 'Dang nhap thanh cong', token , role: user.role});
         } else {
-            res.status(401).send({ error: 'Invalid username or password' });
+            res.status(401).send({ error: 'Ten dang nhap hoac mat khau khong dung' });
         }
        
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: 'Login failed' });
+        res.status(500).send({ error: 'Dang nhap that bai' });
     }
 }
 export const register = async (req, res) => {
@@ -26,7 +26,7 @@ export const register = async (req, res) => {
     try {
         const existingUser = await checkLogin(username, password);
         if (existingUser) {
-            return res.status(400).send({ error: 'Username already exists' });
+            return res.status(400).send({ error: 'Ten dang nhap da ton tai' });
         }
 
         const result = await addThanhvien(username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi);
@@ -34,14 +34,14 @@ export const register = async (req, res) => {
             return res.status(500).send({ error: result.error });
         }
 
-        res.status(201).send({ message: 'User registered successfully', userId: result.newId });
+        res.status(201).send({ message: 'Dang ky thanh cong', userId: result.newId });
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: 'Registration failed' });
+        res.status(500).send({ error: 'Dang ky that bai' });
     }
 }
 
 export const logout = (req, res) => {
     // Xóa token hoặc thực hiện các thao tác cần thiết để đăng xuất
-    res.status(200).send({ message: 'Logout successful' });
+    res.status(200).send({ message: 'Dang xuat thanh cong' });
 }

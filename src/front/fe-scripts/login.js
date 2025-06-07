@@ -41,8 +41,8 @@ function handleFormSubmit(event) {
   }
 
   // Simulate login process
-  console.log('Đăng nhập với:', { phone, password });
-  alert('Đăng nhập thành công!');
+  // console.log('Đăng nhập với:', { phone, password });
+  // alert('Đăng nhập thành công!');
 }
 
 // Close modal handler
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
   toggleButton.addEventListener('click', togglePassword);
 
   // Form submission
-  const loginForm = document.querySelector('.login-form');
-  loginForm.addEventListener('submit', handleFormSubmit);
+  // const loginForm = document.querySelector('.login-form');
+  // loginForm.addEventListener('submit', handleFormSubmit);
 
   // Close button
   const closeButton = document.querySelector('.close-btn');
@@ -111,5 +111,33 @@ document.addEventListener('DOMContentLoaded', function () {
     input.addEventListener('blur', function () {
       this.parentElement.classList.remove('focused');
     });
+  });
+
+  document.querySelector('.login-form').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    console.log('123 123');
+    const username = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    try {
+      const res = await fetch('http://localhost:8080/api/thanhvien/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+      if(res.ok){
+        alert('Đăng nhập thành công!');
+        if(data.role === 'khachhang'){
+          window.location.href = '/';
+        }
+      }else{
+        alert(data.error || 'Đăng nhập thất bại. Vui lòng thử lại.');
+      }
+    } catch (error) {
+      console.error('Lỗi khi đăng nhập:', error);
+      alert('Đăng nhập thất bại. Vui lòng thử lại.');
+    }
   });
 });
