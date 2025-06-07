@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê Khách Hàng Theo Doanh Thu</title>
+    <link rel="stylesheet" href="../style/GDChonTK.css">
+    <link rel="stylesheet" href="../style/GDTKKhachHangTheoDoanhThu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="stats-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Thống kê</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="../interface/GDChonTK.html"><i class="fas fa-chart-line"></i> Tổng quan</a>
+                    </li>
+                    <li>
+                        <a href="../interface/GDThongKeDongXe.html"><i class="fas fa-car"></i> Thống kê xe</a>
+                    </li>
+                    <li class="active">
+                        <a href="../interface/GDTKKhachHangTheoDoanhThu.html"><i class="fas fa-users"></i> Thống kê khách hàng</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../interface/GDChinhQL.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Quay lại
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="date-filter">
+                    <label for="txtNgayBatDau">Từ ngày:</label>
+                    <input type="date" id="txtNgayBatDau" name="txtNgayBatDau">
+                    <label for="txtNgayKetThuc">Đến ngày:</label>
+                    <input type="date" id="txtNgayKetThuc" name="txtNgayKetThuc">
+                    <button id="btnTimKiem" class="filter-btn">Tìm kiếm</button>
+                </div>
+            </header>
+            <div class="content-area">
+                <section class="car-table-section">
+                    <h1>Thống kê khách hàng theo doanh thu</h1>
+                    <div class="table-container">
+                        <table id="tblDanhSachKhachHangTheoDoanhThu">
+                            <thead>
+                                <tr>
+                                    <th>TT</th>
+                                    <th>Mã khách hàng</th>
+                                    <th>Tên</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Tổng số lượt thuê</th>
+                                    <th>Tổng số ngày thuê</th>
+                                    <th>Tổng doanh thu (VNĐ)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

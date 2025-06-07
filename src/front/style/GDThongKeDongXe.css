@@ -1,0 +1,135 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    color: #2d3436;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 50px;
+    color: #0984e3;
+    text-align: center;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-section label {
+    font-weight: 500;
+}
+
+.filter-section input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 5px;
+    outline: none;
+}
+
+#btnTimKiem, #btnXemTKXeTheoDong {
+    padding: 0.5rem 1.2rem;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+#btnTimKiem:hover, #btnXemTKXeTheoDong:hover {
+    background-color: #0873c4;
+}
+
+.table-section {
+    margin: 2rem 0 1.5rem 0;
+    overflow-x: auto;
+}
+
+#tblDanhSachDongXe {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+#tblDanhSachDongXe th, #tblDanhSachDongXe td {
+    padding: 12px 16px;
+    border: 1px solid #b2bec3;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#tblDanhSachDongXe th {
+    background-color: #f8f9fa;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+#tblDanhSachDongXe tbody tr:hover {
+    background-color: #f1f6fb;
+}
+
+.action-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#btnXemTKXeTheoDong {
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 1rem;
+    }
+    .table-section {
+        margin: 1rem 0;
+    }
+    #tblDanhSachDongXe {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0.5rem;
+    }
+    .filter-section {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #tblDanhSachDongXe th, #tblDanhSachDongXe td {
+        padding: 8px 6px;
+        font-size: 0.95rem;
+    }
+}
+
+.filter-btn {
+    text-decoration: none !important;
+}
+
+.filter-btn:active,
+.filter-btn:focus,
+.filter-btn:visited {
+    text-decoration: none !important;
+}

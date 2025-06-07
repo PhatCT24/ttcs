@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    color: #2d3436;
+}
+
+.stats-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 50px;
+    color: #0984e3;
+    text-align: center;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-section label {
+    font-weight: 500;
+}
+
+.filter-section input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 5px;
+    outline: none;
+}
+
+#btnTimKiem {
+    padding: 0.5rem 1.2rem;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-size: 20px;
+}
+
+#btnTimKiem:hover {
+    background-color: #0873c4;
+}
+
+.table-container {
+    margin: 2rem 0 1.5rem 0;
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+#tblDanhSachKhachHangTheoDoanhThu {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#tblDanhSachKhachHangTheoDoanhThu th, #tblDanhSachKhachHangTheoDoanhThu td {
+    padding: 12px 16px;
+    border: 1px solid #b2bec3;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#tblDanhSachKhachHangTheoDoanhThu th {
+    background-color: #f8f9fa;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+#tblDanhSachKhachHangTheoDoanhThu tbody tr:hover {
+    background-color: #f1f6fb;
+}
+
+@media (max-width: 900px) {
+    .table-container {
+        margin: 1rem 0;
+    }
+    #tblDanhSachKhachHangTheoDoanhThu {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .filter-section, .date-filter {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #tblDanhSachKhachHangTheoDoanhThu th, #tblDanhSachKhachHangTheoDoanhThu td {
+        padding: 8px 6px;
+        font-size: 0.95rem;
+    }
+}

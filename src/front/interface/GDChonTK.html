@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê - Thuê Xe</title>
+    <link rel="stylesheet" href="../style/GDChonTK.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="stats-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Thống kê</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="../interface/GDChonTK.html"><i class="fas fa-chart-line"></i> Tổng quan</a>
+                    </li>
+                    <li>
+                        <a href="../interface/GDThongKeDongXe.html"><i class="fas fa-car"></i> Thống kê xe</a>
+                    </li>
+                    <li>
+                        <a href="../interface/GDTKKhachHangTheoDoanhThu.html"><i class="fas fa-users"></i> Thống kê khách hàng</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../interface/GDChinhQL.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Quay lại
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="date-filter">
+                    <label>Từ ngày:</label>
+                    <input type="date">
+                    <label>Đến ngày:</label>
+                    <input type="date">
+                    <button class="filter-btn">Lọc</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Overview Section -->
+                <section class="overview-section">
+                    <h1>Tổng quan thống kê</h1>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-car"></i>
+                            <div class="stat-info">
+                                <h3>Tổng số xe</h3>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info">
+                                <h3>Tổng khách hàng</h3>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-key"></i>
+                            <div class="stat-info">
+                                <h3>Đang thuê</h3>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div class="stat-info">
+                                <h3>Doanh thu</h3>
+                                <p>0 VNĐ</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Car Statistics -->
+                <section class="car-stats-section">
+                    <h2>Thống kê xe</h2>
+                    <div class="stats-cards">
+                        <div class="stat-box">
+                            <h3>Xe theo loại</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Biểu đồ phân loại xe</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Xe theo trạng thái</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Biểu đồ trạng thái xe</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Customer Statistics -->
+                <section class="customer-stats-section">
+                    <h2>Thống kê khách hàng</h2>
+                    <div class="stats-cards">
+                        <div class="stat-box">
+                            <h3>Khách hàng theo tháng</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Biểu đồ khách hàng mới</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Doanh thu theo khách hàng</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Biểu đồ doanh thu</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
