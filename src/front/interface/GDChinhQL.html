@@ -14,13 +14,15 @@
 <body>
     <section class="header">
         <nav>
-            <a href="mainpage.html"><img src="../assets/vf.png"></a>
+            <a href="../interface/GDChinhQL.html"><img src="../assets/vf.png"></a>
             <div class="nav-links" id="navLinks">
                 <i class="bi bi-x-lg" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="">Về chúng tôi</a></li> 
-                    <li><a href="../interface/register.html">Đăng ký</a></li>
-                    <li><a href="../interface/login.html">Đăng nhập</a></li>
+                    <li id="registerLi"><a href="../interface/register.html">Đăng ký</a></li>
+                    <li id="loginLi"><a href="../interface/login.html">Đăng nhập</a></li>
+                    <li id="logoutLi" style="display:none;"><a href="#">Đăng xuất</a></li>
+                    <li id="userLi"><a href="#" id="userName"></a></li>
                 </ul>
             </div>
             <i class="bi bi-list" onclick="showMenu()"></i>
@@ -37,17 +39,6 @@
             </div>
         </div>
         
-
-    <script>
-        //toggle menu
-        var navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right ="0";
-        }
-        function hideMenu(){
-            navLinks.style.right ="-200px";
-        }
-    </script>
-
+    <script src="../fe-scripts/GDChinhQL.js"></script>
 </body>
 </html>

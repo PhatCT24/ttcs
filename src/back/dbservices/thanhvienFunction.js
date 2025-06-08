@@ -28,7 +28,7 @@ export async function checkLogin(username, password){
             [user.ID]
         );
         if (ql.length > 0) role = 'quanly';
-        return { id: user.ID, role };
+        return { id: user.ID, role , ten: user.ten};
     } catch (error){
         console.error(error);
         throw new Error('Loi khi dang nhap');

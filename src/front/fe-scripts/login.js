@@ -87,12 +87,12 @@ document.addEventListener('DOMContentLoaded', function () {
   googleBtn.addEventListener('click', handleGoogleLogin);
 
   // Close modal when clicking outside
-  const overlay = document.querySelector('.overlay');
-  overlay.addEventListener('click', function (event) {
-    if (event.target === overlay) {
-      closeModal();
-    }
-  });
+  // const overlay = document.querySelector('.overlay');
+  // overlay.addEventListener('click', function (event) {
+  //   if (event.target === overlay) {
+  //     closeModal();
+  //   }
+  // });
 
   // Close modal with Escape key
   document.addEventListener('keydown', function (event) {
@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if(res.ok){
         alert('Đăng nhập thành công!');
         localStorage.setItem('token', data.token);
+        localStorage.setItem('ten', data.ten); 
         if(data.role === 'khachhang'){
           window.location.href = '/khachhang';
         }

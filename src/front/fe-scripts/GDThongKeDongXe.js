@@ -4,7 +4,16 @@ let ngaykt = null;
 async function fetchAndRenderTable() {
     ngaybd = document.getElementById('txtNgayBatDau').value;
     ngaykt = document.getElementById('txtNgayKetThuc').value;
-    const res = await fetch(`/api/thongke/thongkedongxe?ngaybd=${ngaybd}&ngaykt=${ngaykt}`);
+    const res = await fetch(`/api/thongke/thongkedongxe?ngaybd=${ngaybd}&ngaykt=${ngaykt}`, {
+        headers:{
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+    if (!res.ok) {
+    const text = await res.text();
+    alert(text); // hoặc xử lý chuyển hướng về trang đăng nhập
+    throw new Error(text);
+    }
     const data = await res.json();
 
     const tbody = document.querySelector('#tblDanhSachDongXe tbody');

@@ -17,8 +17,12 @@ app.use(json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'src/front')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhKH.html'));
+});
+
 app.get('/khachhang', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/front/interface/mainpage.html'));
+  res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhKH.html'));
 });
 
 app.get('/quanly', (req, res) => {

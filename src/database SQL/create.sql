@@ -68,7 +68,6 @@ CREATE TABLE tblDonThue (
     tblKhachHangtblThanhVienID VARCHAR(50),
     tblXeThueID VARCHAR(50),
     so_luong INT,
-    gia DECIMAL(15,2),
     tong_so_luong INT,
     ngay_dat DATE,
     ghi_chu NVARCHAR(255),
@@ -80,7 +79,6 @@ CREATE TABLE tblHoaDon (
     ID VARCHAR(50) PRIMARY KEY,
     tblDonThueID VARCHAR(50),
     tblKhachHangtblThanhVienID VARCHAR(50),
-    gia DECIMAL(15,2),
     ngay_thanh_toan DATE,
     phuong_thuc NVARCHAR(50),
     ghi_chu NVARCHAR(255),
@@ -107,6 +105,7 @@ CREATE TABLE tblLoiTrenXe (
     ID VARCHAR(50) PRIMARY KEY,
     tblXeThueID VARCHAR(50),
     tblLoiID VARCHAR(50),
+    gia DECIMAL(15,2),
     so_luong INT,
     FOREIGN KEY (tblXeThueID) REFERENCES tblXeThue(ID),
     FOREIGN KEY (tblLoiID) REFERENCES tblLoi(ID)
@@ -151,4 +150,3 @@ CREATE TABLE tblXeCTV (
     FOREIGN KEY (tblCTVtblThanhVienID) REFERENCES tblCTV(tblThanhVienID),
     FOREIGN KEY (tblXeID) REFERENCES tblXe(ID)
 );
-

@@ -10,7 +10,16 @@ async function fetchAndRenderTable() {
     if (ngaybd) document.getElementById('txtNgayBatDau').value = ngaybd;
     if (ngaykt) document.getElementById('txtNgayKetThuc').value = ngaykt;
 
-    const res = await fetch(`/api/thongke/thongkexe?ngaybd=${ngaybd}&ngaykt=${ngaykt}&hangxe=${hangxe}`);
+    const res = await fetch(`/api/thongke/thongkexe?ngaybd=${ngaybd}&ngaykt=${ngaykt}&hangxe=${hangxe}`, {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+    if (!res.ok) {
+        const text = await res.text();
+        alert(text); // hoặc xử lý chuyển hướng về trang đăng nhập
+        throw new Error(text);
+    }
     const data = await res.json();
     const tbody = document.querySelector('#tblDanhSachXeTheoDong tbody');
     tbody.innerHTML = '';

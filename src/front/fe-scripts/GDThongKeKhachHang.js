@@ -1,7 +1,16 @@
 async function fetchAndRenderTable(){
     const ngaybd = document.getElementById('txtNgayBatDau').value;
     const ngaykt = document.getElementById('txtNgayKetThuc').value;
-    const res = await fetch(`/api/thongke/thongkekh?ngaybd=${ngaybd}&ngaykt=${ngaykt}`);
+    const res = await fetch(`/api/thongke/thongkekh?ngaybd=${ngaybd}&ngaykt=${ngaykt}`, {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+    if (!res.ok) {
+    const text = await res.text();
+    alert(text); // hoặc xử lý chuyển hướng về trang đăng nhập
+    throw new Error(text);
+    }
     const data = await res.json();
     const tbody = document.querySelector('#tblDanhSachKhachHangTheoDoanhThu tbody');
     tbody.innerHTML = '';
