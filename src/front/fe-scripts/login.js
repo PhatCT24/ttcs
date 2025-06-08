@@ -116,21 +116,25 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.login-form').addEventListener('submit', async function (event) {
     event.preventDefault();
     console.log('123 123');
-    const username = document.getElementById('phone').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     try {
       const res = await fetch('http://localhost:8080/api/thanhvien/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password })
       });
       const data = await res.json();
       if(res.ok){
         alert('Đăng nhập thành công!');
+        localStorage.setItem('token', data.token);
         if(data.role === 'khachhang'){
-          window.location.href = '/';
+          window.location.href = '/khachhang';
+        }
+        else if(data.role === 'quanly'){
+          window.location.href = '/quanly';
         }
       }else{
         alert(data.error || 'Đăng nhập thất bại. Vui lòng thử lại.');

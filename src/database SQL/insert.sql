@@ -29,7 +29,17 @@ INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, lo
 INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES
 (1, 1, 1500000.00, '2025-06-01', '2025-06-03', 1, 'Thue ngan han'),
 (2, 2, 1200000.00, '2025-06-02', '2025-06-05', 1, 'Thue dai han'),
-(3, 3, 1800000.00, '2025-06-03', '2025-06-04', 1, 'Thue cao cap');
+(3, 3, 1800000.00, '2025-06-03', '2025-06-04', 1, 'Thue cao cap'),
+(4, 1, 1600000.00, '2025-06-07', '2025-06-09', 1, 'Thue ngan han'),
+(5, 2, 1300000.00, '2025-06-11', '2025-06-14', 1, 'Thue dai han'),
+(6, 3, 1900000.00, '2025-06-16', '2025-06-17', 1, 'Thue cao cap'),
+(7, 1, 1450000.00, '2025-06-20', '2025-06-22', 1, 'Thue ngan han'),
+(8, 2, 1250000.00, '2025-06-25', '2025-06-27', 1, 'Thue dai han'),
+(9, 3, 2000000.00, '2025-06-30', '2025-07-01', 1, 'Thue cao cap'),
+(10, 1, 1550000.00, '2025-07-04', '2025-07-06', 1, 'Thue ngan han'),
+(11, 2, 1150000.00, '2025-07-09', '2025-07-12', 1, 'Thue dai han'),
+(12, 3, 1850000.00, '2025-07-15', '2025-07-16', 1, 'Thue cao cap'),
+(13, 1, 1500000.00, '2025-07-19', '2025-07-21', 1, 'Thue ngan han');
 
 INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, gia, tong_so_luong, ngay_dat, ghi_chu) VALUES
 (1, 1, 1, 1, 1500000.00, 1, '2025-05-30', 'Don thue xe Camry'),
@@ -64,7 +74,8 @@ INSERT INTO tblDichVu (ID, ten, mo_ta, gia) VALUES
 INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES
 (1, 1, 1, 1, 100000.00),
 (2, 2, 2, 1, 500000.00),
-(3, 3, 3, 1, 200000.00);
+(3, 3, 3, 1, 200000.00),
+(4, 14, 3, 5, 200000.00);
 
 INSERT INTO tblTheChap (ID, mo_ta) VALUES
 (1, 'CMND so 123456789'),

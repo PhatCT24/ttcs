@@ -22,7 +22,12 @@ export async function checkLogin(username, password){
             [user.ID]
         );
         if (nv.length > 0) role = 'nhanvien';
-
+        
+        const [ql] = await pool.execute(
+            'SELECT * FROM tblQuanLy WHERE tblNVCuaHangtblThanhVienID = ?',
+            [user.ID]
+        );
+        if (ql.length > 0) role = 'quanly';
         return { id: user.ID, role };
     } catch (error){
         console.error(error);

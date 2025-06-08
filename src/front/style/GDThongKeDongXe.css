@@ -133,3 +133,7 @@ h1 {
 .filter-btn:visited {
     text-decoration: none !important;
 }
+
+.selected-row {
+    background-color: #ffe082 !important;
+}

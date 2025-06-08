@@ -42,6 +42,5 @@ export const register = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    // Xóa token hoặc thực hiện các thao tác cần thiết để đăng xuất
     res.status(200).send({ message: 'Dang xuat thanh cong' });
 }
