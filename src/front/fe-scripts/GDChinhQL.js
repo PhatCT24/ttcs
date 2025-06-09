@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('registerLi').style.display = '';
         document.getElementById('loginLi').style.display = '';
         document.getElementById('logoutLi').style.display = 'none';
-        document.getElementById('userName').textContent = 'Ai đấy?';
+        document.getElementById('userName').textContent = '';
     }
     const logoutBtn = document.getElementById('logoutLi');
     if (logoutBtn) {
