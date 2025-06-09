@@ -1,0 +1,48 @@
+/* GDTimDon.css */
+
+.timdon-section {
+    max-width: 1100px;
+    margin: 50px auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 32px 24px 32px 24px;
+}
+.timdon-section h2 {
+    color: #00c4b4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.timdon-form-row {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+#txtMaDon {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #b2f2ef;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+#btnTimKiemDon {
+    min-width: 140px;
+}
+.tbl-don-thue-container {
+    overflow-x: auto;
+}
+#tblDonThue {
+    width: 100%;
+    margin-bottom: 24px;
+}
+#btnXacNhan {
+    min-width: 160px;
+    margin-right: 0;
+}
+.timdon-xacnhan-row {
+    text-align: right;
+    margin-top: 18px;
+    padding-right: 12px;
+}

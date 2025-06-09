@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Đơn Thuê</title>
+    <link rel="stylesheet" href="../style/GDTimXe.css">
+    <link rel="stylesheet" href="../style/GDTimDon.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>Trả Xe</span>
+        </div>
+        <nav>
+            <ul>
+                <li id="homeLi"><button onclick="window.location.href='../interface/GDChinhKH.html'" class="homebtn">Trang chủ</button></li>
+                <li id="userLi"><button id="userName" class="tenbtn"></button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="timdon-section">
+            <h2>Tìm Đơn Thuê</h2>
+            <div class="timdon-form-row">
+                <input id="txtMaDon" type="text" placeholder="Nhập tên khách hàng">
+                <button id="btnTimKiemDon" class="search-btn">Tìm kiếm đơn</button>
+            </div>
+            <div class="tbl-don-thue-container">
+                <table id="tblDonThue" class="car-table">
+                    <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>Mã đơn</th>
+                            <th>Tên KH</th>
+                            <th>Mã xe</th>
+                            <th>Ngày thuê</th>
+                            <th>Trạng thái</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu đơn thuê sẽ được thêm ở đây -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="timdon-xacnhan-row">
+                <button id="btnXacNhan" class="xac-nhan-btn">Xác nhận</button>
+            </div>
+        </section>
+    </main>
+    <script src="../fe-scripts/GDTimDon.js"></script>
+</body>
+</html>
