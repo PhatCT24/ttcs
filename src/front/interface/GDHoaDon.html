@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNPay QR Payment</title>
+    <link rel="stylesheet" href="../style/GDHoaDon.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>Thuê Xe</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../interface/GDChinhKH.html">Trang chủ</a></li>
+                
+        </nav>
+    </header>
+    <main>
+        <div class="alert">
+            <strong>Quý khách vui lòng không tắt trình duyệt cho đến khi nhận được kết quả giao dịch trên website.</strong> Trường hợp đã thanh toán nhưng chưa nhận kết quả giao dịch, vui lòng bấm "Tại đây" để nhận kết quả. Xin cảm ơn!
+        </div>
+        <div class="container">
+            <div class="order-info">
+                <h2>Thông tin đơn hàng</h2>
+                <div class="row">
+                    <div class="label">Số tiền thanh toán</div>
+                    <div class="value"><span id="order-amount"></span><span class="vnd">VNĐ</span></div>
+                </div>
+                <div class="row">
+                    <div class="label">Giá trị đơn hàng</div>
+                    <div class="value small"><span id="order-value"></span><span class="vnd">VNĐ</span></div>
+                </div>
+                <div class="row">
+                    <div class="label">Phí giao dịch</div>
+                    <div class="value small">0<span class="vnd">VNĐ</span></div>
+                </div>
+                <div class="row">
+                    <div class="label">Mã đơn hàng</div>
+                    <div class="value small"></div>
+                </div>
+                <div class="row">
+                    <div class="label">Nhà cung cấp</div>
+                    <div class="supplier">CÔNG TY THUÊ XE MINH PHÁT</div>
+                </div>
+            </div>
+            <div class="qr-section">
+                <h3>Quét mã qua ứng dụng Ngân hàng/<br>Ví điện tử</h3>
+                <div class="guide"><a href="#">Hướng dẫn thanh toán</a></div>
+                <div class="qr-placeholder">QR CODE HERE</div>
+                <button class="cancel-btn">Hủy thanh toán</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
