@@ -253,3 +253,21 @@ nav ul li a {
         border-radius: 0;
     }
 }
+
+.xac-nhan-btn {
+    background-color: #00b894;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 2.2rem;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+}
+.xac-nhan-btn:hover {
+    background-color: #009e74;
+}
