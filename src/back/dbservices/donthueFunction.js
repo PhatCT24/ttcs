@@ -7,22 +7,30 @@ function pad(num, size) {
 }
 
 // Hàm lấy số thứ tự tiếp theo cho từng bảng (giả sử bạn đã có hàm getMaxId cho từng bảng)
-async function getNextId(pool, table, prefix) {
-    const [rows] = await pool.execute(`SELECT ID FROM ${table} WHERE ID LIKE '${prefix}%' ORDER BY ID DESC LIMIT 1`);
-    if (rows.length === 0) return prefix + '001';
-    const maxId = rows[0].ID;
+export async function getNextId(table, prefix) {
+    const maxId = await getMaxId(table, prefix);
+    if (!maxId) return prefix + '001';
     const num = parseInt(maxId.replace(prefix, '')) + 1;
-    return prefix + pad(num, 3);
+    return prefix + num.toString().padStart(3, '0');
 }
 
-export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, idthechap, thechapSL, pool) {
+export async function getMaxId(table, prefix) {
+    const [rows] = await pool.execute(
+        `SELECT ID FROM ${table} WHERE ID LIKE ? ORDER BY ID DESC LIMIT 1`,
+        [`${prefix}%`]
+    );
+    if (rows.length === 0) return null;
+    return rows[0].ID;
+}
+
+export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, idthechap, thechapSL) {
     try {
         const xeThueIDs = {};
         const donThueIDs = {};
 
         // 1. Thêm vào tblXeThue cho từng xe
         for (const xeID of Object.keys(xeThueDichVu)) {
-            const xeThueID = await getNextId(pool, 'tblXeThue', 'XT');
+            const xeThueID = await getNextId('tblXeThue', 'XT');
             xeThueIDs[xeID] = xeThueID;
             await pool.query(
                 `INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES (?, ?, ?, ?, ?, ?, ?)`,
@@ -32,7 +40,7 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
 
         // 2. Thêm vào tblDonThue cho từng xe thuê
         for (const xeID of Object.keys(xeThueDichVu)) {
-            const donThueID = await getNextId(pool, 'tblDonThue', 'DT');
+            const donThueID = await getNextId('tblDonThue', 'DT');
             donThueIDs[xeID] = donThueID;
             await pool.query(
                 `INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, ngay_dat, ghi_chu, tra_donNV, tra_donKH) VALUES (?, ?, ?, ?, NOW(), ?, FALSE, FALSE)`,
@@ -45,7 +53,7 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
             const dvList = xeThueDichVu[xeID];
             if (Array.isArray(dvList) && dvList.length > 0) {
                 for (const dvID of dvList) {
-                    const dvSuDungID = await getNextId(pool, 'tblDVSuDung', 'DVS');
+                    const dvSuDungID = await getNextId('tblDVSuDung', 'DVS'); // Sửa ở đây
                     await pool.query(
                         `INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES (?, ?, ?, ?, ?)`,
                         [dvSuDungID, xeThueIDs[xeID], dvID, 1, 0]
@@ -56,7 +64,7 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
 
         // 4. Thêm vào tblTheChapTrenDT cho từng đơn thuê
         for (const xeID of Object.keys(xeThueDichVu)) {
-            const theChapTrenDTID = await getNextId(pool, 'tblTheChapTrenDT', 'TCDT');
+            const theChapTrenDTID = await getNextId('tblTheChapTrenDT', 'TCDT');
             await pool.query(
                 `INSERT INTO tblTheChapTrenDT (ID, tblDonThueID, tblTheChapID, so_luong, gia) VALUES (?, ?, ?, ?, ?)`,
                 [theChapTrenDTID, donThueIDs[xeID], idthechap, thechapSL, 0]
@@ -67,5 +75,18 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
     } catch (error) {
         console.error(error);
         throw new Error('Lỗi khi thêm đơn thuê');
+    }
+}
+
+export async function getDonThueByIDKhachHang(id) {
+    try {
+        const [rows] = await pool.execute(
+            `SELECT * FROM tblDonThue WHERE tblKhachHangtblThanhVienID = ?`,
+            [id]
+        );
+        return rows;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Lỗi khi lấy đơn thuê theo ID khách hàng');
     }
 }
