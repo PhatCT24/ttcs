@@ -68,7 +68,6 @@ CREATE TABLE tblDonThue (
     tblKhachHangtblThanhVienID VARCHAR(50),
     tblXeThueID VARCHAR(50),
     so_luong INT,
-    tong_so_luong INT,
     ngay_dat DATE,
     ghi_chu NVARCHAR(255),
     tra_donNV BOOLEAN DEFAULT FALSE,
@@ -81,8 +80,6 @@ CREATE TABLE tblHoaDon (
     ID VARCHAR(50) PRIMARY KEY,
     tblDonThueID VARCHAR(50),
     tblKhachHangtblThanhVienID VARCHAR(50),
-    ngay_thanh_toan DATE,
-    phuong_thuc NVARCHAR(50),
     ghi_chu NVARCHAR(255),
     FOREIGN KEY (tblDonThueID) REFERENCES tblDonThue(ID),
     FOREIGN KEY (tblKhachHangtblThanhVienID) REFERENCES tblKhachHang(tblThanhVienID)
@@ -100,7 +97,8 @@ CREATE TABLE tblHDPhu (
 CREATE TABLE tblLoi (
     ID VARCHAR(50) PRIMARY KEY,
     ten NVARCHAR(100),
-    mo_ta NVARCHAR(255)
+    mo_ta NVARCHAR(255),
+    gia DECIMAL(15,2)
 );
 
 CREATE TABLE tblLoiTrenXe (
@@ -132,7 +130,8 @@ CREATE TABLE tblDVSuDung (
 
 CREATE TABLE tblTheChap (
     ID VARCHAR(50) PRIMARY KEY,
-    mo_ta NVARCHAR(255)
+    mo_ta VARCHAR(255),
+    gia DECIMAL(15,2)
 );
 
 CREATE TABLE tblTheChapTrenDT (
