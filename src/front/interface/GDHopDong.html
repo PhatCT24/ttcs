@@ -25,7 +25,10 @@
             <div class="form-container">
                 <div class="form-group">
                     <label for="txtThechap">Thế chấp:</label>
-                    <input type="text" id="txtThechap" placeholder="Nhập giá trị thế chấp">
+                    <select id="txtThechap">
+                        <option value="">Chọn giá trị thế chấp</option>
+                        <!-- Các option sẽ được thêm bằng JS -->
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="txtSoLuong">Số lượng:</label>
@@ -33,68 +36,73 @@
                 </div>
                 <button id="btnThem">Thêm vào hợp đồng</button>
             </div>
-            <p id="pNoiDungHD" contenteditable="true" style="white-space: pre-line; margin-top:2rem; background:#f1f6fb; padding:1.5rem; border-radius:8px;">
-HỢP ĐỒNG CHO THUÊ XE
-Số: … /HĐTX/2025
-
-Hôm nay, ngày … tháng … năm 2025, tại …, gồm:
-
-BÊN THUÊ XE:
-Họ và tên: ........................................................
-Số CMND/CCCD: ................................................
-Địa chỉ: .............................................................
-Số điện thoại: ....................................................
-
-ĐIỀU 1: ĐỐI TƯỢNG HỢP ĐỒNG
-Bên A đồng ý cho Bên B thuê phương tiện sau:
-ID:
-Hãng xe:
-Biển số:
-Màu sắc:
-Tình trạng xe:  (ghi rõ hoặc đính kèm biên bản bàn giao)
-
-ĐIỀU 2: THỜI HẠN THUÊ
-Từ: … giờ, ngày … tháng … năm 2025
-Đến: … giờ, ngày … tháng … năm 2025
-Có thể gia hạn nếu hai bên đồng ý bằng văn bản.
-
-ĐIỀU 3: GIÁ THUÊ VÀ THANH TOÁN
-Giá thuê:  VNĐ/ngày
-Tổng tiền thuê:  VNĐ
-Thanh toán bằng: [ ] Tiền mặt [ ] Chuyển khoản
-Thời điểm thanh toán:
-
-ĐIỀU 4: Thế Chấp
-Người thuê thế chấp: 
-Giá trị thế chấp: VNĐ
-Tiền thế chấp sẽ được hoàn trả khi kết thúc hợp đồng, trừ trường hợp vi phạm hoặc làm hư hỏng xe.
-
-ĐIỀU 5: QUY ĐỊNH SỬ DỤNG XE
-Bên B phải có bằng lái hợp lệ.
-Không sử dụng xe vào mục đích trái pháp luật.
-Không cho người khác thuê lại xe.
-Không đưa xe ra khỏi khu vực: (nếu có).
-
-ĐIỀU 6: TRÁCH NHIỆM SỬA CHỮA – BẢO TRÌ
-Mọi hư hỏng do lỗi người thuê phải được bên B chịu trách nhiệm sửa chữa, khôi phục nguyên trạng.
-Trường hợp xe bị tai nạn, mất cắp: Bên B chịu trách nhiệm bồi thường toàn bộ thiệt hại.
-
-ĐIỀU 7: VI PHẠM VÀ XỬ LÝ
-Trả xe trễ: Phạt   VNĐ/giờ hoặc theo thỏa thuận.
-Làm hư hỏng xe: Bên B chịu toàn bộ chi phí sửa chữa.
-Vi phạm khác: bồi thường theo mức độ thiệt hại thực tế.
-
-ĐIỀU 8: CHẤM DỨT HỢP ĐỒNG
-Hợp đồng chấm dứt khi hết hạn hoặc theo thỏa thuận hai bên.
-Trường hợp một bên đơn phương chấm dứt phải thông báo trước ít nhất 1 ngày và chịu phạt (nếu có).
-
-ĐIỀU 9: GIẢI QUYẾT TRANH CHẤP
-Hai bên ưu tiên giải quyết bằng thương lượng.
-Trường hợp không thương lượng được, tranh chấp sẽ được đưa ra Tòa án có thẩm quyền tại
-
-ĐIỀU 10: CAM KẾT CHUNG
-Bên thuê cam kết chịu trách nhiệm với các thông tin và nội dung trong hợp đồng.
-            </p>
+            <div id="pNoiDungHD" contenteditable="true" style="white-space: pre-line; margin-top:2rem; background:#f1f6fb; padding:1.5rem; border-radius:8px;">
+                    <div class = "tieu-ngu">
+                        HỢP ĐỒNG CHO THUÊ XE
+                        2025
+                    </div>
+                    <div class = "tieu-ngu">
+                        Hôm nay, ngày … tháng … năm 2025, tại …, gồm:
+                        BÊN THUÊ XE:
+                        Họ và tên: <span id="tenKH"></span>
+                        Địa chỉ: <span id="diaChiKH"></span>
+                        Số điện thoại: <span id="sdtKH"></span>
+                    </div>
+                    <div class = "tieu-ngu1">
+                        ĐIỀU 1: ĐỐI TƯỢNG HỢP ĐỒNG
+                        Bên A đồng ý cho Bên B thuê phương tiện sau:
+                        ID: <span id="idXe"></span>
+                        Tình trạng xe:  (ghi rõ hoặc đính kèm biên bản bàn giao)
+                    </div>
+                    <div class = "tieu-ngu2">
+                        ĐIỀU 2: THỜI HẠN THUÊ
+                        Hợp đồng có hiệu lực cho tất cả các xe có mã ID giống với điều 1.
+                        Từ: <span id="ngaybatdau"></span>
+                        Đến: <span id="ngayketthuc"></span>
+                        Có thể gia hạn nếu hai bên đồng ý bằng văn bản.
+                    </div>
+                    <div class = "tieu-ngu3">
+                        ĐIỀU 3: GIÁ THUÊ THEO XE
+                        <span id="giathue"></span>
+                    </div>
+                    <div class = "tieu-ngu4">
+                        ĐIỀU 4: Thế Chấp
+                        <span id="thechap"></span>
+                        Tiền thế chấp sẽ được hoàn trả khi kết thúc hợp đồng, trừ trường hợp vi phạm hoặc làm hư hỏng xe.
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 5: QUY ĐỊNH SỬ DỤNG XE
+                        Bên B phải có bằng lái hợp lệ.
+                        Không sử dụng xe vào mục đích trái pháp luật.
+                        Không cho người khác thuê lại xe.
+                        Không đưa xe ra khỏi khu vực: (nếu có).
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 6: TRÁCH NHIỆM SỬA CHỮA – BẢO TRÌ
+                        Mọi hư hỏng do lỗi người thuê phải được bên B chịu trách nhiệm sửa chữa, khôi phục nguyên trạng.
+                        Trường hợp xe bị tai nạn, mất cắp: Bên B chịu trách nhiệm bồi thường toàn bộ thiệt hại.
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 7: VI PHẠM VÀ XỬ LÝ
+                        Trả xe trễ: Phạt   VNĐ/giờ hoặc theo thỏa thuận.
+                        Làm hư hỏng xe: Bên B chịu toàn bộ chi phí sửa chữa.
+                        Vi phạm khác: bồi thường theo mức độ thiệt hại thực tế.
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 8: CHẤM DỨT HỢP ĐỒNG
+                        Hợp đồng chấm dứt khi hết hạn hoặc theo thỏa thuận hai bên.
+                        Trường hợp một bên đơn phương chấm dứt phải thông báo trước ít nhất 1 ngày và chịu phạt (nếu có).
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 9: GIẢI QUYẾT TRANH CHẤP
+                        Hai bên ưu tiên giải quyết bằng thương lượng.
+                        Trường hợp không thương lượng được, tranh chấp sẽ được đưa ra Tòa án có thẩm quyền tại
+                    </div>
+                    <div class = "tieu-ngu">
+                        ĐIỀU 10: CAM KẾT CHUNG
+                        Bên thuê cam kết chịu trách nhiệm với các thông tin và nội dung trong hợp đồng.
+                    </div>
+                </div>
             <a id="btnQuayLai" href="../interface/GDTimXe.html" style="margin-right: 1rem;">Quay lại</a>
             <a id="btnXacNhan" href="#" onclick="showXacNhanModal(event)">Xác nhận</a>
         </section>
@@ -124,11 +132,6 @@ Bên thuê cam kết chịu trách nhiệm với các thông tin và nội dung 
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     }
     </style>
-    <script>
-    function showXacNhanModal(e) {
-      e.preventDefault();
-      document.getElementById('xacNhanOverlay').style.display = 'flex';
-    }
-    </script>
+    <script src="../fe-scripts/GDHopDong.js"></script>
 </body>
 </html>

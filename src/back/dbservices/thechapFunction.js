@@ -1,6 +1,6 @@
 import { pool } from './database.js';
 
-export async function getTheChap(){
+export async function getAllTheChap(){
     try{
         const [rows] = await pool.execute(
             'SELECT * FROM tblTheChap'

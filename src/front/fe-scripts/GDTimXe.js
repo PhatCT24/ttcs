@@ -1,6 +1,7 @@
-let selectedXeID = null;
-let selectedDVID = null;
-
+let selectedXeID = [];
+let selectedDVID = [];
+const xeThueDichVu = {};
+const giathuexe = {};
 function renderCarTable(data) {
     const tbody = document.querySelector('.car-table tbody');
     tbody.innerHTML = '';
@@ -20,9 +21,15 @@ function renderCarTable(data) {
             <td>${xe.ghi_chu || ''}</td>
         `;
         tr.addEventListener('click', function () {
-            tbody.querySelectorAll('tr').forEach(row => row.classList.remove('selected-row'));
-            tr.classList.add('selected-row');
-            selectedXeID = xe.ID;
+            tr.classList.toggle('selected-row');
+            const idx = selectedXeID.indexOf(xe.ID);
+            if (idx === -1) {
+                selectedXeID.push(xe.ID);
+                giathuexe[xe.ID] = xe.gia;
+            } else {
+                selectedXeID.splice(idx, 1);
+                delete giathuexe[xe.ID];
+            }
         });
         tbody.appendChild(tr);
     });
@@ -40,15 +47,23 @@ function renderDichVuTable(data){
             <td>${Number(dv.gia).toLocaleString('vi-VN')}</td>
         `;
         tr.addEventListener('click', function () {
-            tbody.querySelectorAll('tr').forEach(row => row.classList.remove('selected-row'));
-            tr.classList.add('selected-row');
-            selectedDVID = dv.ID;
+            tr.classList.toggle('selected-row');
+            const idx = selectedDVID.indexOf(dv.ID);
+            if (idx === -1) {
+                selectedDVID.push(dv.ID);
+            } else {
+                selectedDVID.splice(idx, 1);
+            }
         });
         tbody.appendChild(tr);
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    localStorage.removeItem('xeThueDichVu');
+    localStorage.removeItem('ngaybd');
+    localStorage.removeItem('ngaykt');
+    localStorage.removeItem('giathuexe');
     const ngaybdInput = document.getElementById('ngaybd');
     const ngayktInput = document.getElementById('ngaykt');
     const tenInput = document.getElementById('ten');
@@ -112,21 +127,57 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // themDichVuBtn.addEventListener('click', async function (e) {
-    //     e.preventDefault();
-    //     const tuKhoaDichVu = dichVuInput.value;
-    //     try{
-    //         const res = await fetch(`/api/thuexe/dichvu?name=${tuKhoaDichVu}`, {
-    //             headers: {
-    //                 Authorization: `Bearer ${localStorage.getItem('token')}`
-    //             }
-    //         });
-    //         const data = await res.json();
-    //         renderDichVuTable(data);
-    //     } catch{
-    //         alert('Lỗi khi tìm dịch vụ!');
-    //     }
+    document.getElementById('themdvbtn').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (selectedXeID.length === 0) {
+            alert('Vui lòng chọn ít nhất một xe!');
+            return;
+        }
+        let daTrung = false;
+        selectedXeID.forEach(xeID => {
+            if (!xeThueDichVu[xeID]) {
+                xeThueDichVu[xeID] = [];
+            }
+            selectedDVID.forEach(dvID => {
+                if (!xeThueDichVu[xeID].includes(dvID)) {
+                    xeThueDichVu[xeID].push(dvID);
+                } else {
+                    daTrung = true;
+                }
+            });
+        });
+        if (daTrung) {
+            alert('Một số dịch vụ đã được thêm cho xe, hệ thống sẽ bỏ qua các dịch vụ trùng lặp.');
+        } else {
+            alert('Đã thêm dịch vụ cho các xe đã chọn!');
+        }
+    });
+    document.querySelector('.xac-nhan-btn').addEventListener('click', function(e) {
+        selectedXeID.forEach(xeID => {
+            if (!xeThueDichVu[xeID]) {
+                xeThueDichVu[xeID] = [];
+            }
+        });
         
-    //     console.log('Thêm dịch vụ:', tuKhoaDichVu);
-    // });
+        let msg = 'Bạn đã chọn:\n';
+        selectedXeID.forEach(xeID => {
+            msg += `- Xe ID: ${xeID}, Dịch vụ: `;
+            if (xeThueDichVu[xeID].length === 0) {
+                msg += 'Không có dịch vụ nào';
+            } else {
+                msg += xeThueDichVu[xeID].join(', ');
+            }
+            msg += '\n';
+        });
+        if (!confirm(msg + '\nBạn có muốn tiếp tục không?')) {
+            e.preventDefault();
+            return;
+        }
+
+        localStorage.setItem('xeThueDichVu', JSON.stringify(xeThueDichVu));
+        localStorage.setItem('ngaybd', ngaybdInput.value);
+        localStorage.setItem('ngaykt', ngayktInput.value);
+        localStorage.setItem('giathuexe', JSON.stringify(giathuexe));
+    });
+    
 });

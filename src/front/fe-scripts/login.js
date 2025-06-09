@@ -128,8 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const data = await res.json();
       if(res.ok){
         alert('Đăng nhập thành công!');
+        localStorage.setItem('id', data.id);
         localStorage.setItem('token', data.token);
-        localStorage.setItem('ten', data.ten); 
+        localStorage.setItem('ten', data.ten);
+        localStorage.setItem('diachi', data.diachi);
+        localStorage.setItem('sdt', data.sdt);
         if(data.role === 'khachhang'){
           window.location.href = '/khachhang';
         }

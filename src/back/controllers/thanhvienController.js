@@ -11,7 +11,7 @@ export const login = async (req, res) => {
             }, process.env.JWT_SECRET, {
                 expiresIn: '7days'
             });
-            res.status(200).send({ ten: user.ten, message: 'Dang nhap thanh cong', token , role: user.role});
+            res.status(200).send({ id: user.id, ten: user.ten, message: 'Dang nhap thanh cong', token , role: user.role, diachi: user.diachi, sdt: user.sdt});
         } else {
             res.status(401).send({ error: 'Ten dang nhap hoac mat khau khong dung' });
         }

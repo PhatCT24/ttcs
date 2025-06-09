@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) {
                 console.error('Error logging out:', error);
             }
-            localStorage.removeItem('token');
-            localStorage.removeItem('ten');
+            localStorage.clear();
             window.location.href = '../interface/GDChinhKH.html'; // hoặc reload lại trang chính nếu muốn
         });
     }

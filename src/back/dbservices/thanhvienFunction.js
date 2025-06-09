@@ -1,5 +1,5 @@
 import {pool} from './database.js';
-import KhachHang from '../models/KhachHang.js';
+import KhachHang from '../models/KhachHang.js';     
 
 export async function checkLogin(username, password){
     try{
@@ -28,7 +28,7 @@ export async function checkLogin(username, password){
             [user.ID]
         );
         if (ql.length > 0) role = 'quanly';
-        return { id: user.ID, role , ten: user.ten};
+        return { id: user.ID, role , ten: user.ten, diachi: user.dia_chi, sdt: user.so_dien_thoai};
     } catch (error){
         console.error(error);
         throw new Error('Loi khi dang nhap');

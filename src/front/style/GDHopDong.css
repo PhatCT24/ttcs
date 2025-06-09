@@ -26,6 +26,10 @@ header {
     font-weight: bold;
     color: #00c4b4;
 }
+select, select option {
+    color: #222 !important;
+    background: #f1f6fb !important;
+}
 nav ul {
     list-style: none;
     display: flex;
@@ -115,6 +119,14 @@ main {
 }
 .form-group input:focus {
     border-color: #00c4b4;
+}
+#txtThechap {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box; 
 }
 #btnThem {
     background-color: #00c4b4;

@@ -12,3 +12,16 @@ export async function timkiemXe(name, startDate, endDate){
         throw new Error('Loi khi tim kiem danh sach xe');
     }
 }
+
+export async function timkiemXebyID(id){
+    try{
+        const [rows] = await pool.execute(
+            'SELECT * FROM tblXe WHERE ID = ?',
+            [id]
+        );
+        return rows;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Loi khi tim kiem xe theo ID');
+    }
+}
