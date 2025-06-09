@@ -236,3 +236,51 @@ body {
     }
     .modal-title { font-size: 1.38rem; }
 }
+
+.register-form input[type="date"] {
+    width: 100%;
+    padding: 11px 16px;
+    font-size: 1.1rem;
+    border: 1.5px solid #ebebeb;
+    border-radius: 10px;
+    margin-top: 6px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border 0.2s;
+    background: #fff;
+    color: #7a7a7a;
+}
+.register-form input[type="date"]:focus {
+    border-color: #6ee7b7;
+}
+.register-form input[type="date"]::placeholder {
+    color: #7a7a7a;
+    opacity: 1;
+}
+.register-form input[type="date"]::-webkit-input-placeholder {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-ms-input-placeholder {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-moz-placeholder {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit-text {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit-month-field {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit-day-field {
+    color: #7a7a7a;
+}
+.register-form input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #7a7a7a;
+}
