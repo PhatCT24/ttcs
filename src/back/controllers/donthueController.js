@@ -1,4 +1,4 @@
-import { addDonThue } from '../dbservices/donthueFunction.js';
+import { addDonThue, getDonThueByIDKhachHang } from '../dbservices/donthueFunction.js';
 
 export const addDT = async (req, res) => {
     const {idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, thechapID, thechapSL} = req.body;
@@ -13,7 +13,7 @@ export const addDT = async (req, res) => {
 }
 
 export const getDTbyIDKhachhang = async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.query;
     try {
         const result = await getDonThueByIDKhachHang(id);
         res.status(200).json(result);

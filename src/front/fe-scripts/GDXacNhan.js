@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         // Lấy dữ liệu từ localStorage
-        const idkh = localStorage.getItem('idkh');
+        const idkh = localStorage.getItem('id');
         const xeThueDichVu = JSON.parse(localStorage.getItem('xeThueDichVu') || '{}');
         const ngaybd = localStorage.getItem('ngaybd');
         const ngaykt = localStorage.getItem('ngaykt');

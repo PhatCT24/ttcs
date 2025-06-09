@@ -26,3 +26,6 @@
     gap: 18px;
     justify-content: flex-end;
 }
+.selected-row {
+    background-color: #ffe082 !important;
+}
