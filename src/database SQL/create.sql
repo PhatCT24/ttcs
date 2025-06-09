@@ -70,6 +70,7 @@ CREATE TABLE tblDonThue (
     so_luong INT,
     ngay_dat DATE,
     ghi_chu NVARCHAR(255),
+    giao_xeNV BOOLEAN DEFAULT FALSE,
     tra_donNV BOOLEAN DEFAULT FALSE,
     tra_donKH BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (tblKhachHangtblThanhVienID) REFERENCES tblKhachHang(tblThanhVienID),

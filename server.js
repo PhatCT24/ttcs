@@ -23,13 +23,14 @@ app.use(express.static(path.join(__dirname, 'src/front')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhKH.html'));
 });
-
 app.get('/khachhang', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhKH.html')); 
 });
-
 app.get('/quanly', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhQl.html'));
+});
+app.get('/nhanvien', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/front/interface/GDChinhNV.html'));
 });
 
 app.use('/api/thanhvien', thanhvienRouter);

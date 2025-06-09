@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if(data.role === 'khachhang'){
           window.location.href = '/khachhang';
         }
+        else if(data.role === 'nhanvien'){
+          window.location.href = '/nhanvien';
+        }
         else if(data.role === 'quanly'){
           window.location.href = '/quanly';
         }

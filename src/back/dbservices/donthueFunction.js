@@ -90,3 +90,51 @@ export async function getDonThueByIDKhachHang(id) {
         throw new Error('Lỗi khi lấy đơn thuê theo ID khách hàng');
     }
 }
+
+export async function updatetraxeKH(id) {
+    try {
+        const [rows] = await pool.execute(
+            `UPDATE tblDonThue SET tra_donKH = TRUE WHERE ID = ?`,
+            [id]
+        );
+        if (rows.affectedRows === 0) {
+            throw new Error('Không tìm thấy đơn thuê với ID đã cho');
+        }
+        return { success: true };
+    } catch (error) {
+        console.error(error);
+        throw new Error('Lỗi khi cập nhật trạng thái trả xe');
+    }
+}   
+
+export async function updatetraxeNV(id) {
+    try {
+        const [rows] = await pool.execute(
+            `UPDATE tblDonThue SET tra_donNV = TRUE WHERE ID = ?`,
+            [id]
+        );
+        if (rows.affectedRows === 0) {
+            throw new Error('Không tìm thấy đơn thuê với ID đã cho');
+        }
+        return { success: true };
+    } catch (error) {
+        console.error(error);
+        throw new Error('Lỗi khi cập nhật trạng thái trả xe');
+    }
+}
+
+export async function updategiaoxeNV(id) {
+    try {
+        const [rows] = await pool.execute(
+            `UPDATE tblDonThue SET giao_xeNV = TRUE WHERE ID = ?`,
+            [id]
+        );
+        if (rows.affectedRows === 0) {
+            throw new Error('Không tìm thấy đơn thuê với ID đã cho');
+        }
+        return { success: true };
+    } catch (error) {
+        console.error(error);
+        throw new Error('Lỗi khi cập nhật trạng thái giao xe');
+    }
+}
