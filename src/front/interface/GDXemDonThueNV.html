@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Đơn Thuê Khách Hàng</title>
+    <link rel="stylesheet" href="../style/GDTimXe.css">
+    <link rel="stylesheet" href="../style/GDXemDonThueNV.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>Thuê Xe</span>
+        </div>
+        <nav>
+            <ul>
+                <li id="homeLi"><button onclick="window.location.href='../interface/GDChinhNV.html'" class="homebtn">Trang chủ</button></li>
+                <li id="userLi"><button id="userName" class="tenbtn"></button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="xemdon-section">
+            <h2>Đơn Thuê Của Khách Hàng</h2>
+            <div class="xemdon-search-row">
+                <input id="txtMaDon" type="text" placeholder="Nhập mã khách hàng">
+                <button id="btnTimKiemDon" class="search-btn">Tìm kiếm đơn</button>
+            </div>
+            <div class="xemdon-table-container">
+                <table id="tblDon" class="car-table">
+                    <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>Mã đơn</th>
+                            <th>Ngày thuê</th>
+                            <th>Tổng tiền thuê xe(VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="xemdon-btn-row">
+                <button id="btnTraxe" class="xac-nhan-btn">Trả Xe</button>
+                <button id="btnXemHopDong" class="xac-nhan-btn">Xem hợp đồng</button>
+            </div>
+        </section>
+    </main>
+    <script src="../fe-scripts/GDXemDonThueKH.js"></script>
+</body>
+</html>

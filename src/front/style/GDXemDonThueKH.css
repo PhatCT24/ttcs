@@ -1,0 +1,28 @@
+/* GDXemDonThueKH.css */
+
+.xemdon-section {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 32px 24px;
+}
+.xemdon-section h2 {
+    color: #00c4b4;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.xemdon-table-container {
+    overflow-x: auto;
+}
+#tblDon {
+    width: 100%;
+    margin-bottom: 24px;
+}
+.xemdon-btn-row {
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+}
