@@ -9,8 +9,8 @@ async function fetchAndRenderTable() {
     const hangxe = getQueryParam('hangxe');
     if (ngaybd) document.getElementById('txtNgayBatDau').value = ngaybd;
     if (ngaykt) document.getElementById('txtNgayKetThuc').value = ngaykt;
-    if (new Date(ngaybd) < new Date(ngaykt)) {
-        alert('Ngày bắt đầu không được nhỏ hơn ngày kết thúc.');
+    if (new Date(ngaybd) > new Date(ngaykt)) {
+        alert('Ngày bắt đầu không được lớn hơn ngày kết thúc.');
         return;
     }
     const res = await fetch(`/api/thongke/thongkexe?ngaybd=${ngaybd}&ngaykt=${ngaykt}&hangxe=${hangxe}`, {
