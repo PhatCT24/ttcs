@@ -58,25 +58,23 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     document.getElementById('btnThem').addEventListener('click', function (e) {
-        const thechapValue = document.getElementById('txtThechap').value;
+        const select = document.getElementById('txtThechap');
+        const thechapID = select.value;
+        const thechapText = select.selectedOptions[0].textContent;
         const soLuong = document.getElementById('txtSoLuong').value;
 
-        e.preventDefault();
-        if( !thechapValue) {
+        if (!thechapID) {
             alert('Vui lòng chọn loại thế chấp.');
             return;
         }
 
-        localStorage.setItem('thechapID', thechapValue);
+        localStorage.setItem('thechapID', thechapID);
         localStorage.setItem('thechapSL', soLuong || '1');
 
-        let text = 'Loại: ';
-        if (thechapValue) {
-            text += thechapValue;
-        }
+        let text = `Loại: ${thechapText}`;
         if (soLuong) {
             text += ` (Số lượng: ${soLuong})`;
         }
         document.getElementById('thechap').textContent = text;
-    }); 
+        }); 
 });
