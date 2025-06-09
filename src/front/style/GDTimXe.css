@@ -123,7 +123,7 @@ nav ul li a {
     z-index: 1;
 }
 
-.logout-btn {
+.logout-btn, .homebtn, .aboutbtn, .tenbtn {
     background-color: #00c4b4;
     color: #fff;
     border: none;
@@ -137,12 +137,12 @@ nav ul li a {
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(0, 196, 180, 0.08);
 }
-.logout-btn:hover {
+.logout-btn:hover, .homebtn:hover, .aboutbtn:hover, .tenbtn:hover {
     background-color: #009688;
     transform: scale(1.07);
     box-shadow: 0 4px 16px rgba(0, 196, 180, 0.18);
 }
-.logout-btn:active {
+.logout-btn:active, .homebtn:active, .aboutbtn:active, .tenbtn:active {
     background-color: #00796b;
     transform: scale(0.98);
 }
@@ -270,4 +270,7 @@ nav ul li a {
 }
 .xac-nhan-btn:hover {
     background-color: #009e74;
+}
+.selected-row {
+    background-color: #ffe082 !important;
 }

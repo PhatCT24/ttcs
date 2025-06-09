@@ -13,9 +13,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="../interface/GDChinhKH.html">Trang chủ</a></li>
-                <li><a href="#">Về chúng tôi</a></li>
-                <button class ="logout-btn">Đăng xuất</button>
+                <li id="homeLi"><button onclick="window.location.href='../interface/GDChinhKH.html'" class="homebtn">Trang chủ</button></li>
+                <!-- <li id="logoutLi"><button class="logout-btn">Đăng xuất</button></li> -->
+                <li id="userLi"><button id="userName" class="tenbtn"></button></li>
             </ul>
         </nav>
     </header>
@@ -25,17 +25,17 @@
                 <div class="form-container">
                     <div class="form-group">
                         <label>Ngày nhận xe</label>
-                        <input type="date" >
+                        <input type="date" id="ngaybd" >
                     </div>
                     <div class="form-group">
                         <label>Ngày trả xe</label>
-                        <input type="date" >
+                        <input type="date" id="ngaykt" >
                     </div>
                     <div class="form-group">
-                        <label>Mô tả</label>
-                        <input type="text" placeholder="Mô tả">
+                        <label>Tên xe</label>
+                        <input type="text" placeholder="Tên xe" id="ten">
                     </div>
-                    <button class="search-btn">TÌM XE</button>
+                    <button class="search-btn" id="timxebtn">TÌM XE</button>
                 </div>
                 
                 <div class="form-container service-search-container">
@@ -43,8 +43,8 @@
                         <label for="dichvu-input">Dịch vụ đi kèm</label>
                         <input id="dichvu-input" type="text" placeholder="Dịch vụ">
                     </div>
-                    <button class="search-btn">Tìm dịch vụ</button>
-                    <button class="search-btn">Thêm dịch vụ</button>
+                    <button class="search-btn" id="timdvbtn">Tìm dịch vụ</button>
+                    <button class="search-btn" id="themdvbtn">Thêm dịch vụ</button>
                 </div>
             </div>
             <div class="hero-text">
@@ -67,7 +67,6 @@
                             <th>Giá thuê</th>
                             <th>Biển số</th>
                             <th>Ghi chú</th>
-                            <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,14 +76,14 @@
             </div>
         </section>
         <!-- Dịch vụ table -->
-        <section class="car-table-section">
+        <section class="car-table-section" id="dichvu-table">
             <div class="table-container">
                 <table class="car-table">
                     <thead>
                         <tr>
                             <th>TT</th>
                             <th>Tên</th>
-                            <th>Số lượng</th>
+                            <th>Mô tả chi tiết</th>
                             <th>Giá</th>
                         </tr>
                     </thead>
@@ -98,5 +97,6 @@
             <a href="GDHopDong.html" class="xac-nhan-btn">Xác nhận</a>
         </div>
     </main>
+    <script src="../fe-scripts/GDTimXe.js"></script>
 </body>
 </html>

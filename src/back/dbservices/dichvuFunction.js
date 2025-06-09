@@ -1,6 +1,6 @@
 import { pool } from './database.js';   
 
-export async function getDichVu(name){
+export async function timkiemDichVu(name){
     try{
         const [rows] = await pool.execute(
             'SELECT * FROM tblDichVu WHERE ten like ?',

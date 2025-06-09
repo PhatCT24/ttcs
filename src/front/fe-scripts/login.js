@@ -115,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector('.login-form').addEventListener('submit', async function (event) {
     event.preventDefault();
-    console.log('123 123');
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     try {

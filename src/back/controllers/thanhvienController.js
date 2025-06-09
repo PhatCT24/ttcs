@@ -15,7 +15,7 @@ export const login = async (req, res) => {
         } else {
             res.status(401).send({ error: 'Ten dang nhap hoac mat khau khong dung' });
         }
-       
+        console.log('Dang nhap thanh cong:', user.ID);
     } catch (error) {
         console.error(error);
         res.status(500).send({ error: 'Dang nhap that bai' });
@@ -35,6 +35,7 @@ export const register = async (req, res) => {
         }
 
         res.status(201).send({ message: 'Dang ky thanh cong', userId: result.newId });
+        console.log('Dang ky thanh cong:', result.newId);
     } catch (error) {
         console.error(error);
         res.status(500).send({ error: 'Dang ky that bai' });
