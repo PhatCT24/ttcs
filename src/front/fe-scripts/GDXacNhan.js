@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
             });
             if (res.ok) {
+                const data = await res.json();
+                localStorage.setItem('tongtien', data.tongTien);
+
                 window.top.location.href = "GDHoaDon.html";
+
                 localStorage.removeItem('idkh');
                 localStorage.removeItem('xeThueDichVu');
                 localStorage.removeItem('ngaybd');

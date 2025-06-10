@@ -30,18 +30,18 @@ INSERT INTO tblNhanVien (tblNVCuaHangtblThanhVienID) VALUES
 
 -- Bảng tblXe (12 giá trị)
 INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, loai_nhien_lieu, gia, bien_so, ghi_chu) VALUES
-('XE001', 'Toyota', 'Camry', 2020, 'Tu dong', 5, 'Den', 'Xang', 1000000000.00, '51A-12345', 'Xe moi'),
-('XE002', 'Honda', 'Civic', 2019, 'Tu dong', 5, 'Trang', 'Xang', 900000000.00, '51B-67890', 'Xe da qua su dung'),
-('XE003', 'Hyundai', 'Tucson', 2021, 'Tu dong', 7, 'Xanh', 'Dau', 1100000000.00, '51C-54321', 'Xe moi'),
-('XE004', 'Kia', 'Seltos', 2022, 'Tu dong', 5, 'Do', 'Xang', 800000000.00, '51D-98765', 'Xe moi'),
-('XE005', 'Mazda', 'CX-5', 2020, 'Tu dong', 5, 'Xam', 'Xang', 950000000.00, '51E-24680', 'Xe da qua su dung'),
-('XE006', 'Ford', 'Ranger', 2021, 'So san', 5, 'Den', 'Dau', 1200000000.00, '51F-13579', 'Xe moi'),
-('XE007', 'Toyota', 'Vios', 2019, 'Tu dong', 5, 'Trang', 'Xang', 600000000.00, '51G-35791', 'Xe da qua su dung'),
-('XE008', 'Honda', 'CR-V', 2022, 'Tu dong', 7, 'Xanh', 'Xang', 1300000000.00, '51H-46802', 'Xe moi'),
-('XE009', 'Hyundai', 'Accent', 2020, 'Tu dong', 5, 'Do', 'Xang', 700000000.00, '51I-57913', 'Xe moi'),
-('XE010', 'Kia', 'Cerato', 2021, 'Tu dong', 5, 'Den', 'Xang', 750000000.00, '51J-68024', 'Xe da qua su dung'),
-('XE011', 'Mitsubishi', 'Outlander', 2020, 'Tu dong', 7, 'Trang', 'Xang', 1000000000.00, '51K-79135', 'Xe moi'),
-('XE012', 'Toyota', 'Fortuner', 2021, 'Tu dong', 7, 'Xam', 'Dau', 1400000000.00, '51L-80246', 'Xe moi');
+('XE001', 'Toyota', 'Camry', 2020, 'Tu dong', 5, 'Den', 'Xang', 1000000.00, '51A-12345', 'Xe moi'),
+('XE002', 'Honda', 'Civic', 2019, 'Tu dong', 5, 'Trang', 'Xang', 900000.00, '51B-67890', 'Xe da qua su dung'),
+('XE003', 'Hyundai', 'Tucson', 2021, 'Tu dong', 7, 'Xanh', 'Dau', 1100000.00, '51C-54321', 'Xe moi'),
+('XE004', 'Kia', 'Seltos', 2022, 'Tu dong', 5, 'Do', 'Xang', 800000.00, '51D-98765', 'Xe moi'),
+('XE005', 'Mazda', 'CX-5', 2020, 'Tu dong', 5, 'Xam', 'Xang', 950000.00, '51E-24680', 'Xe da qua su dung'),
+('XE006', 'Ford', 'Ranger', 2021, 'So san', 5, 'Den', 'Dau', 1200000.00, '51F-13579', 'Xe moi'),
+('XE007', 'Toyota', 'Vios', 2019, 'Tu dong', 5, 'Trang', 'Xang', 600000.00, '51G-35791', 'Xe da qua su dung'),
+('XE008', 'Honda', 'CR-V', 2022, 'Tu dong', 7, 'Xanh', 'Xang', 1300000.00, '51H-46802', 'Xe moi'),
+('XE009', 'Hyundai', 'Accent', 2020, 'Tu dong', 5, 'Do', 'Xang', 700000.00, '51I-57913', 'Xe moi'),
+('XE010', 'Kia', 'Cerato', 2021, 'Tu dong', 5, 'Den', 'Xang', 750000.00, '51J-68024', 'Xe da qua su dung'),
+('XE011', 'Mitsubishi', 'Outlander', 2020, 'Tu dong', 7, 'Trang', 'Xang', 1000000.00, '51K-79135', 'Xe moi'),
+('XE012', 'Toyota', 'Fortuner', 2021, 'Tu dong', 7, 'Xam', 'Dau', 1400000.00, '51L-80246', 'Xe moi');
 
 -- Bảng tblXeThue (12 giá trị)
 INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES

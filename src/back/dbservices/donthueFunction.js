@@ -6,7 +6,6 @@ function pad(num, size) {
     return s;
 }
 
-// Hàm lấy số thứ tự tiếp theo cho từng bảng (giả sử bạn đã có hàm getMaxId cho từng bảng)
 export async function getNextId(table, prefix) {
     const maxId = await getMaxId(table, prefix);
     if (!maxId) return prefix + '001';
@@ -23,12 +22,35 @@ export async function getMaxId(table, prefix) {
     return rows[0].ID;
 }
 
+export async function tinhTongTienPhaiTra(xeThueDichVu, giathuexe, ngaybd, ngaykt) {
+    let tongTien = 0;
+    const soNgay = (new Date(ngaykt) - new Date(ngaybd)) / (1000 * 60 * 60 * 24) + 1;
+
+    for (const xeID of Object.keys(xeThueDichVu)) {
+        const giaXe = Number(giathuexe[xeID] || 0);
+        tongTien += giaXe * soNgay;
+
+        const dvList = xeThueDichVu[xeID];
+        if (Array.isArray(dvList) && dvList.length > 0) {
+            for (const dvID of dvList) {
+                const [rows] = await pool.query(
+                    'SELECT gia FROM tblDichVu WHERE ID = ? LIMIT 1',
+                    [dvID]
+                );
+                if (rows.length > 0) {
+                    tongTien += Number(rows[0].gia);
+                }
+            }
+        }
+    }
+    return tongTien;
+}
+
 export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, idthechap, thechapSL) {
     try {
         const xeThueIDs = {};
         const donThueIDs = {};
 
-        // 1. Thêm vào tblXeThue cho từng xe
         for (const xeID of Object.keys(xeThueDichVu)) {
             const xeThueID = await getNextId('tblXeThue', 'XT');
             xeThueIDs[xeID] = xeThueID;
@@ -38,7 +60,6 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
             );
         }
 
-        // 2. Thêm vào tblDonThue cho từng xe thuê
         for (const xeID of Object.keys(xeThueDichVu)) {
             const donThueID = await getNextId('tblDonThue', 'DT');
             donThueIDs[xeID] = donThueID;
@@ -48,12 +69,11 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
             );
         }
 
-        // 3. Thêm vào tblDVSuDung cho từng dịch vụ của từng xe (nếu có)
         for (const xeID of Object.keys(xeThueDichVu)) {
             const dvList = xeThueDichVu[xeID];
             if (Array.isArray(dvList) && dvList.length > 0) {
                 for (const dvID of dvList) {
-                    const dvSuDungID = await getNextId('tblDVSuDung', 'DVS'); // Sửa ở đây
+                    const dvSuDungID = await getNextId('tblDVSuDung', 'DVS'); 
                     await pool.query(
                         `INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES (?, ?, ?, ?, ?)`,
                         [dvSuDungID, xeThueIDs[xeID], dvID, 1, 0]
@@ -62,7 +82,6 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
             }
         }
 
-        // 4. Thêm vào tblTheChapTrenDT cho từng đơn thuê
         for (const xeID of Object.keys(xeThueDichVu)) {
             const theChapTrenDTID = await getNextId('tblTheChapTrenDT', 'TCDT');
             await pool.query(
@@ -70,8 +89,8 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
                 [theChapTrenDTID, donThueIDs[xeID], idthechap, thechapSL, 0]
             );
         }
-
-        return { success: true, xeThueIDs, donThueIDs };
+        const tongTien = await tinhTongTienPhaiTra(xeThueDichVu, giathuexe, ngaybd, ngaykt);
+        return { success: true, xeThueIDs, donThueIDs, tongTien };
     } catch (error) {
         console.error(error);
         throw new Error('Lỗi khi thêm đơn thuê');
