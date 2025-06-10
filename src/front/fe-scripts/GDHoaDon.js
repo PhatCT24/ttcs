@@ -5,5 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         document.getElementById('order-amount').textContent = '0';
     }
-    // localStorage.removeItem('tongtien');
+    localStorage.removeItem('tongtien');
+    document.getElementById('userName').textContent = localStorage.getItem('ten');
 });

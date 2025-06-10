@@ -1,198 +1,199 @@
-USE webthuexe;
-
--- Insert 15 records into tblThanhVien
+-- Bảng tblThanhVien (5 giá trị)
 INSERT INTO tblThanhVien (ID, username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi) VALUES
-('TV001', 'user1', 'hashedpass1', N'Nguyễn Văn An', '1990-01-15', 'an.nguyen@email.com', '0901234561', N'123 Đường Láng, Hà Nội'),
-('TV002', 'user2', 'hashedpass2', N'Trần Thị Bình', '1992-03-22', 'binh.tran@email.com', '0901234562', N'456 Lê Lợi, TP.HCM'),
-('TV003', 'user3', 'hashedpass3', N'Phạm Minh Châu', '1988-07-10', 'chau.pham@email.com', '0901234563', N'789 Nguyễn Huệ, Đà Nẵng'),
-('TV004', 'user4', 'hashedpass4', N'Lê Văn Đức', '1995-11-30', 'duc.le@email.com', '0901234564', N'101 Trần Phú, Nha Trang'),
-('TV005', 'user5', 'hashedpass5', N'Hoàng Thị E', '1993-05-25', 'e.hoang@email.com', '0901234565', N'202 Hùng Vương, Huế'),
-('TV006', 'user6', 'hashedpass6', N'Vũ Văn Hùng', '1991-09-12', 'hung.vu@email.com', '0901234566', N'303 Bà Triệu, Hà Nội'),
-('TV007', 'user7', 'hashedpass7', N'Đỗ Thị Lan', '1994-02-18', 'lan.do@email.com', '0901234567', N'404 Nguyễn Trãi, TP.HCM'),
-('TV008', 'user8', 'hashedpass8', N'Bùi Văn Minh', '1989-12-05', 'minh.bui@email.com', '0901234568', N'505 Lý Thường Kiệt, Đà Nẵng'),
-('TV009', 'user9', 'hashedpass9', N'Ngô Thị Ngọc', '1996-04-20', 'ngoc.ngo@email.com', '0901234569', N'606 Phạm Văn Đồng, Hà Nội'),
-('TV010', 'user10', 'hashedpass10', N'Mai Văn Quang', '1990-08-08', 'quang.mai@email.com', '0901234570', N'707 Nguyễn Văn Cừ, TP.HCM'),
-('TV011', 'user11', 'hashedpass11', N'Nguyễn Thị Hoa', '1987-06-14', 'hoa.nguyen@email.com', '0901234571', N'808 Trần Hưng Đạo, Hà Nội'),
-('TV012', 'user12', 'hashedpass12', N'Trần Văn Khang', '1993-10-10', 'khang.tran@email.com', '0901234572', N'909 Võ Văn Kiệt, TP.HCM'),
-('TV013', 'user13', 'hashedpass13', N'Phạm Văn Lâm', '1990-12-25', 'lam.pham@email.com', '0901234573', N'111 Hai Bà Trưng, Đà Nẵng'),
-('TV014', 'user14', 'hashedpass14', N'Lê Thị Mai', '1992-04-30', 'mai.le@email.com', '0901234574', N'222 Nguyễn Đình Chiểu, Nha Trang'),
-('TV015', 'user15', 'hashedpass15', N'Hoàng Văn Nam', '1989-08-20', 'nam.hoang@email.com', '0901234575', N'333 Lê Đại Hành, Huế');
+('TV001', 'nguyenvana', 'password123', 'Nguyen Van A', '1990-05-15', 'nguyenvana@email.com', '0905123456', '123 Duong 1, Quan 1, TP HCM'),
+('TV002', 'tranthib', 'pass456', 'Tran Thi B', '1985-10-20', 'tranthib@email.com', '0916234567', '456 Duong 2, Quan 2, TP HCM'),
+('TV003', 'lethic', 'pass789', 'Le Thi C', '1995-03-25', 'lethic@email.com', '0927345678', '789 Duong 3, Quan 3, TP HCM'),
+('TV004', 'phamvand', 'pass101', 'Pham Van D', '1988-07-30', 'phamvand@email.com', '0938456789', '101 Duong 4, Quan 4, TP HCM'),
+('TV005', 'hoangvane', 'pass202', 'Hoang Van E', '1980-12-10', 'hoangvane@email.com', '0949567890', '202 Duong 5, Quan 5, TP HCM');
 
--- Insert 10 records into tblKhachHang
+-- Bảng tblKhachHang (2 giá trị, tương ứng với TV001, TV002)
 INSERT INTO tblKhachHang (tblThanhVienID) VALUES
-('TV001'), ('TV002'), ('TV003'), ('TV004'), ('TV005'),
-('TV006'), ('TV007'), ('TV008'), ('TV009'), ('TV010');
+('TV001'),
+('TV002');
 
--- Insert 5 records into tblNVCuaHang (1 for QuanLy, 4 for NhanVien)
-INSERT INTO tblNVCuaHang (tblThanhVienID, vi_tri) VALUES
-('TV011', N'Quản lý'),
-('TV012', N'Nhân viên kỹ thuật'),
-('TV013', N'Nhân viên chăm sóc khách hàng'),
-('TV014', N'Nhân viên giao xe'),
-('TV015', N'Nhân viên bảo dưỡng');
-
--- Insert 1 record into tblQuanLy
-INSERT INTO tblQuanLy (tblNVCuaHangtblThanhVienID) VALUES
-('TV011');
-
--- Insert 4 records into tblNhanVien
-INSERT INTO tblNhanVien (tblNVCuaHangtblThanhVienID) VALUES
-('TV012'), ('TV013'), ('TV014'), ('TV015');
-
--- Insert 20 records into tblXe
-INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, loai_nhien_lieu, gia, bien_so, ghi_chu) VALUES
-('XE001', N'Toyota', N'Vios', 2020, N'Tự động', 5, N'Trắng', N'Xăng', 500000.00, '29A-12345', N'Xe mới, tiết kiệm nhiên liệu'),
-('XE002', N'Honda', N'City', 2021, N'Tự động', 5, N'Đen', N'Xăng', 550000.00, '51A-54321', N'Đầy đủ tiện nghi'),
-('XE003', N'Hyundai', N'Accent', 2019, N'Số sàn', 5, N'Xanh', N'Xăng', 450000.00, '30A-67890', N'Xe bền, ít hỏng vặt'),
-('XE004', N'Kia', N'Cerato', 2022, N'Tự động', 5, N'Đỏ', N'Xăng', 600000.00, '29B-11111', N'Xe sang trọng'),
-('XE005', N'Mazda', N'3', 2021, N'Tự động', 5, N'Trắng', N'Xăng', 580000.00, '51B-22222', N'Hiệu suất cao'),
-('XE006', N'Toyota', N'Fortuner', 2020, N'Tự động', 7, N'Đen', N'Dầu', 800000.00, '29C-33333', N'SUV mạnh mẽ'),
-('XE007', N'Honda', N'CR-V', 2022, N'Tự động', 7, N'Xám', N'Xăng', 850000.00, '51C-44444', N'Đầy đủ công nghệ'),
-('XE008', N'Hyundai', N'Tucson', 2021, N'Tự động', 5, N'Trắng', N'Xăng', 700000.00, '30B-55555', N'Thiết kế hiện đại'),
-('XE009', N'Kia', N'Seltos', 2023, N'Tự động', 5, N'Đỏ', N'Xăng', 650000.00, '29D-66666', N'Xe mới, tiết kiệm'),
-('XE010', N'Mitsubishi', N'Xforce', 2023, N'Tự động', 5, N'Xanh', N'Xăng', 600000.00, '51D-77777', N'Động cơ bền bỉ'),
-('XE011', N'Toyota', N'Innova', 2020, N'Số sàn', 7, N'Bạc', N'Xăng', 700000.00, '29E-88888', N'Xe gia đình'),
-('XE012', N'Honda', N'Civic', 2022, N'Tự động', 5, N'Đen', N'Xăng', 750000.00, '51E-99999', N'Thiết kế thể thao'),
-('XE013', N'Hyundai', N'Santa Fe', 2021, N'Tự động', 7, N'Trắng', N'Dầu', 900000.00, '30C-10101', N'SUV cao cấp'),
-('XE014', N'Kia', N'Carnival', 2023, N'Tự động', 7, N'Đen', N'Dầu', 950000.00, '29F-20202', N'Xe đa dụng'),
-('XE015', N'Mazda', N'CX-5', 2022, N'Tự động', 5, N'Xám', N'Xăng', 800000.00, '51F-30303', N'Công nghệ hiện đại'),
-('XE016', N'Toyota', N'Camry', 2021, N'Tự động', 5, N'Trắng', N'Xăng', 850000.00, '29G-40404', N'Xe sedan cao cấp'),
-('XE017', N'Honda', N'Accord', 2020, N'Tự động', 5, N'Đen', N'Xăng', 900000.00, '51G-50505', N'Thiết kế sang trọng'),
-('XE018', N'Hyundai', N'Elantra', 2022, N'Tự động', 5, N'Đỏ', N'Xăng', 600000.00, '30D-60606', N'Xe tiết kiệm nhiên liệu'),
-('XE019', N'Kia', N'Sorento', 2023, N'Tự động', 7, N'Xanh', N'Dầu', 950000.00, '29H-70707', N'SUV mạnh mẽ'),
-('XE020', N'Mitsubishi', N'Outlander', 2021, N'Tự động', 7, N'Trắng', N'Xăng', 800000.00, '51H-80808', N'Xe đa dụng');
-
--- Insert 20 records into tblXeThue (linked to tblXe)
-INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES
-('XT001', 'XE001', 500000.00, '2025-06-15', '2025-06-17', 1, N'Thuê 2 ngày'),
-('XT002', 'XE002', 550000.00, '2025-06-16', '2025-06-18', 1, N'Thuê ngắn hạn'),
-('XT003', 'XE003', 450000.00, '2025-06-17', '2025-06-19', 1, N'Xe tiết kiệm'),
-('XT004', 'XE004', 600000.00, '2025-06-18', '2025-06-20', 1, N'Thuê đi công tác'),
-('XT005', 'XE005', 580000.00, '2025-06-19', '2025-06-21', 1, N'Xe mới'),
-('XT006', 'XE006', 800000.00, '2025-06-20', '2025-06-23', 1, N'Thuê dài ngày'),
-('XT007', 'XE007', 850000.00, '2025-06-21', '2025-06-24', 1, N'Xe SUV'),
-('XT008', 'XE008', 700000.00, '2025-06-22', '2025-06-24', 1, N'Thuê đi du lịch'),
-('XT009', 'XE009', 650000.00, '2025-06-23', '2025-06-25', 1, N'Xe mới'),
-('XT010', 'XE010', 600000.00, '2025-06-24', '2025-06-26', 1, N'Thuê ngắn hạn'),
-('XT011', 'XE011', 700000.00, '2025-06-25', '2025-06-28', 1, N'Xe gia đình'),
-('XT012', 'XE012', 750000.00, '2025-06-26', '2025-06-29', 1, N'Thuê đi công tác'),
-('XT013', 'XE013', 900000.00, '2025-06-27', '2025-06-30', 1, N'Xe SUV cao cấp'),
-('XT014', 'XE014', 950000.00, '2025-06-28', '2025-07-01', 1, N'Xe đa dụng'),
-('XT015', 'XE015', 800000.00, '2025-06-29', '2025-07-02', 1, N'Thuê dài ngày'),
-('XT016', 'XE016', 850000.00, '2025-06-30', '2025-07-03', 1, N'Xe sedan'),
-('XT017', 'XE017', 900000.00, '2025-07-01', '2025-07-04', 1, N'Thuê đi sự kiện'),
-('XT018', 'XE018', 600000.00, '2025-07-02', '2025-07-04', 1, N'Xe tiết kiệm'),
-('XT019', 'XE019', 950000.00, '2025-07-03', '2025-07-06', 1, N'Xe SUV'),
-('XT020', 'XE020', 800000.00, '2025-07-04', '2025-07-07', 1, N'Thuê đi du lịch');
-
--- Insert 30 records into tblDonThue (multiple orders per customer)
-INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, ngay_dat, ghi_chu, tra_donNV, tra_donKH) VALUES
-('DT001', 'TV001', 'XT001', 1, '2025-06-10', N'Đặt xe đi Hà Nội', FALSE, FALSE),
-('DT002', 'TV001', 'XT002', 1, '2025-06-11', N'Đặt xe đi Đà Nẵng', FALSE, FALSE),
-('DT003', 'TV001', 'XT003', 1, '2025-06-12', N'Đặt xe đi công tác', FALSE, FALSE),
-('DT004', 'TV002', 'XT004', 1, '2025-06-11', N'Đặt xe du lịch', FALSE, FALSE),
-('DT005', 'TV002', 'XT005', 1, '2025-06-13', N'Đặt xe gia đình', FALSE, FALSE),
-('DT006', 'TV003', 'XT006', 1, '2025-06-12', N'Đặt xe đi Huế', FALSE, FALSE),
-('DT007', 'TV003', 'XT007', 1, '2025-06-14', N'Đặt xe công tác', FALSE, FALSE),
-('DT008', 'TV004', 'XT008', 1, '2025-06-13', N'Đặt xe đi Đà Lạt', FALSE, FALSE),
-('DT009', 'TV004', 'XT009', 1, '2025-06-15', N'Đặt xe du lịch', FALSE, FALSE),
-('DT010', 'TV005', 'XT010', 1, '2025-06-14', N'Đặt xe đi Nha Trang', FALSE, FALSE),
-('DT011', 'TV005', 'XT011', 1, '2025-06-16', N'Đặt xe gia đình', FALSE, FALSE),
-('DT012', 'TV006', 'XT012', 1, '2025-06-15', N'Đặt xe đi công tác', FALSE, FALSE),
-('DT013', 'TV006', 'XT013', 1, '2025-06-17', N'Đặt xe đi Đà Nẵng', FALSE, FALSE),
-('DT014', 'TV007', 'XT014', 1, '2025-06-16', N'Đặt xe đi sự kiện', FALSE, FALSE),
-('DT015', 'TV007', 'XT015', 1, '2025-06-18', N'Đặt xe du lịch', FALSE, FALSE),
-('DT016', 'TV008', 'XT016', 1, '2025-06-17', N'Đặt xe đi Hà Nội', FALSE, FALSE),
-('DT017', 'TV008', 'XT017', 1, '2025-06-19', N'Đặt xe công tác', FALSE, FALSE),
-('DT018', 'TV009', 'XT018', 1, '2025-06-18', N'Đặt xe đi Huế', FALSE, FALSE),
-('DT019', 'TV009', 'XT019', 1, '2025-06-20', N'Đặt xe du lịch', FALSE, FALSE),
-('DT020', 'TV010', 'XT020', 1, '2025-06-19', N'Đặt xe đi Đà Lạt', FALSE, FALSE),
-('DT021', 'TV001', 'XT004', 1, '2025-06-20', N'Đặt xe lần 2', FALSE, FALSE),
-('DT022', 'TV002', 'XT006', 1, '2025-06-21', N'Đặt xe đi công tác', FALSE, FALSE),
-('DT023', 'TV003', 'XT008', 1, '2025-06-22', N'Đặt xe du lịch', FALSE, FALSE),
-('DT024', 'TV004', 'XT010', 1, '2025-06-23', N'Đặt xe đi Nha Trang', FALSE, FALSE),
-('DT025', 'TV005', 'XT012', 1, '2025-06-24', N'Đặt xe gia đình', FALSE, FALSE),
-('DT026', 'TV006', 'XT014', 1, '2025-06-25', N'Đặt xe đi sự kiện', FALSE, FALSE),
-('DT027', 'TV007', 'XT016', 1, '2025-06-26', N'Đặt xe đi Hà Nội', FALSE, FALSE),
-('DT028', 'TV008', 'XT018', 1, '2025-06-27', N'Đặt xe đi Huế', FALSE, FALSE),
-('DT029', 'TV009', 'XT020', 1, '2025-06-28', N'Đặt xe du lịch', FALSE, FALSE),
-('DT030', 'TV010', 'XT001', 1, '2025-06-29', N'Đặt xe đi công tác', FALSE, FALSE);
-
--- Insert 30 records into tblHoaDon (linked to tblDonThue and tblKhachHang)
-INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VALUES
-('HD001', 'DT001', 'TV001', N'Hóa đơn thuê xe Vios'),
-('HD002', 'DT002', 'TV001', N'Hóa đơn thuê xe City'),
-('HD003', 'DT003', 'TV001', N'Hóa đơn thuê xe Accent'),
-('HD004', 'DT004', 'TV002', N'Hóa đơn thuê xe Cerato'),
-('HD005', 'DT005', 'TV002', N'Hóa đơn thuê xe Mazda 3'),
-('HD006', 'DT006', 'TV003', N'Hóa đơn thuê xe Fortuner'),
-('HD007', 'DT007', 'TV003', N'Hóa đơn thuê xe CR-V'),
-('HD008', 'DT008', 'TV004', N'Hóa đơn thuê xe Tucson'),
-('HD009', 'DT009', 'TV004', N'Hóa đơn thuê xe Seltos'),
-('HD010', 'DT010', 'TV005', N'Hóa đơn thuê xe Xforce'),
-('HD011', 'DT011', 'TV005', N'Hóa đơn thuê xe Innova'),
-('HD012', 'DT012', 'TV006', N'Hóa đơn thuê xe Civic'),
-('HD013', 'DT013', 'TV006', N'Hóa đơn thuê xe Santa Fe'),
-('HD014', 'DT014', 'TV007', N'Hóa đơn thuê xe Carnival'),
-('HD015', 'DT015', 'TV007', N'Hóa đơn thuê xe CX-5'),
-('HD016', 'DT016', 'TV008', N'Hóa đơn thuê xe Camry'),
-('HD017', 'DT017', 'TV008', N'Hóa đơn thuê xe Accord'),
-('HD018', 'DT018', 'TV009', N'Hóa đơn thuê xe Elantra'),
-('HD019', 'DT019', 'TV009', N'Hóa đơn thuê xe Sorento'),
-('HD020', 'DT020', 'TV010', N'Hóa đơn thuê xe Outlander'),
-('HD021', 'DT021', 'TV001', N'Hóa đơn thuê xe Cerato lần 2'),
-('HD022', 'DT022', 'TV002', N'Hóa đơn thuê xe Fortuner lần 2'),
-('HD023', 'DT023', 'TV003', N'Hóa đơn thuê xe Tucson lần 2'),
-('HD024', 'DT024', 'TV004', N'Hóa đơn thuê xe Xforce lần 2'),
-('HD025', 'DT025', 'TV005', N'Hóa đơn thuê xe Civic lần 2'),
-('HD026', 'DT026', 'TV006', N'Hóa đơn thuê xe Carnival lần 2'),
-('HD027', 'DT027', 'TV007', N'Hóa đơn thuê xe Camry lần 2'),
-('HD028', 'DT028', 'TV008', N'Hóa đơn thuê xe Elantra lần 2'),
-('HD029', 'DT029', 'TV009', N'Hóa đơn thuê xe Outlander lần 2'),
-('HD030', 'DT030', 'TV010', N'Hóa đơn thuê xe Vios lần 2');
-
--- Insert sample data for tblHDPhu (linked to tblHoaDon and tblNhanVien)
-INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gia) VALUES
-('HDP001', 'HD001', 'TV012', 100000.00),
-('HDP002', 'HD002', 'TV013', 150000.00),
-('HDP003', 'HD003', 'TV014', 120000.00),
-('HDP004', 'HD004', 'TV015', 130000.00);
-
--- Insert sample data for tblLoi
-INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
-('LOI001', N'Hỏng lốp', N'Lốp xe bị thủng', 200000.00),
-('LOI002', N'Hỏng đèn pha', N'Đèn pha không hoạt động', 300000.00);
-
--- Insert sample data for tblLoiTrenXe
-INSERT INTO tblLoiTrenXe (ID, tblXeThueID, tblLoiID, gia, so_luong) VALUES
-('LTX001', 'XT001', 'LOI001', 200000.00, 1),
-('LTX002', 'XT002', 'LOI002', 300000.00, 1);
-
--- Insert sample data for tblDichVu
-INSERT INTO tblDichVu (ID, ten, mo_ta, gia) VALUES
-('DV001', N'Rửa xe', N'Rửa xe sạch sẽ', 50000.00),
-('DV002', N'Tài xế', N'Cung cấp tài xế lái xe', 200000.00);
-
--- Insert sample data for tblDVSuDung
-INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES
-('DVS001', 'XT001', 'DV001', 1, 50000.00),
-('DVS002', 'XT002', 'DV002', 1, 200000.00);
-
--- Insert sample data for tblTheChap
-INSERT INTO tblTheChap (ID, mo_ta, gia) VALUES
-('TC001', N'CMND/CCCD', N'Thế chấp chứng minh nhân dân', 500000.00),
-('TC002', N'Giấy phép lái xe', N'Thế chấp GPLX', 300000.00);
-
--- Insert sample data for tblTheChapTrenDT
-INSERT INTO tblTheChapTrenDT (ID, tblDonThueID, tblTheChapID, so_luong, gia) VALUES
-('TCDT001', 'DT001', 'TC001', 1, 500000.00),
-('TCDT002', 'DT002', 'TC002', 1, 300000.00);
-
--- Insert sample data for tblCTV
+-- Bảng tblCTV (1 giá trị, tương ứng với TV003)
 INSERT INTO tblCTV (tblThanhVienID) VALUES
-('TV001'), ('TV002');
+('TV003');
 
--- Insert sample data for tblXeCTV
+-- Bảng tblNVCuaHang (2 giá trị, tương ứng với TV004, TV005)
+INSERT INTO tblNVCuaHang (tblThanhVienID, vi_tri) VALUES
+('TV004', 'Nhan vien ban hang'),
+('TV005', 'Quan ly');
+
+-- Bảng tblQuanLy (1 giá trị, tương ứng với TV005)
+INSERT INTO tblQuanLy (tblNVCuaHangtblThanhVienID) VALUES
+('TV005');
+
+-- Bảng tblNhanVien (1 giá trị, tương ứng với TV004)
+INSERT INTO tblNhanVien (tblNVCuaHangtblThanhVienID) VALUES
+('TV004');
+
+-- Bảng tblXe (12 giá trị)
+INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, loai_nhien_lieu, gia, bien_so, ghi_chu) VALUES
+('XE001', 'Toyota', 'Camry', 2020, 'Tu dong', 5, 'Den', 'Xang', 1000000.00, '51A-12345', 'Xe moi'),
+('XE002', 'Honda', 'Civic', 2019, 'Tu dong', 5, 'Trang', 'Xang', 900000.00, '51B-67890', 'Xe da qua su dung'),
+('XE003', 'Hyundai', 'Tucson', 2021, 'Tu dong', 7, 'Xanh', 'Dau', 1100000.00, '51C-54321', 'Xe moi'),
+('XE004', 'Kia', 'Seltos', 2022, 'Tu dong', 5, 'Do', 'Xang', 800000.00, '51D-98765', 'Xe moi'),
+('XE005', 'Mazda', 'CX-5', 2020, 'Tu dong', 5, 'Xam', 'Xang', 950000.00, '51E-24680', 'Xe da qua su dung'),
+('XE006', 'Ford', 'Ranger', 2021, 'So san', 5, 'Den', 'Dau', 1200000.00, '51F-13579', 'Xe moi'),
+('XE007', 'Toyota', 'Vios', 2019, 'Tu dong', 5, 'Trang', 'Xang', 600000.00, '51G-35791', 'Xe da qua su dung'),
+('XE008', 'Honda', 'CR-V', 2022, 'Tu dong', 7, 'Xanh', 'Xang', 1300000.00, '51H-46802', 'Xe moi'),
+('XE009', 'Hyundai', 'Accent', 2020, 'Tu dong', 5, 'Do', 'Xang', 700000.00, '51I-57913', 'Xe moi'),
+('XE010', 'Kia', 'Cerato', 2021, 'Tu dong', 5, 'Den', 'Xang', 750000.00, '51J-68024', 'Xe da qua su dung'),
+('XE011', 'Mitsubishi', 'Outlander', 2020, 'Tu dong', 7, 'Trang', 'Xang', 1000000.00, '51K-79135', 'Xe moi'),
+('XE012', 'Toyota', 'Fortuner', 2021, 'Tu dong', 7, 'Xam', 'Dau', 1400000.00, '51L-80246', 'Xe moi');
+
+-- Bảng tblXeThue (12 giá trị)
+INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES
+('XT001', 'XE001', 500000.00, '2025-06-10', '2025-06-15', 1, 'Thue 5 ngay'),
+('XT002', 'XE002', 450000.00, '2025-06-12', '2025-06-14', 1, 'Thue 3 ngay'),
+('XT003', 'XE003', 600000.00, '2025-06-15', '2025-06-20', 1, 'Thue 5 ngay'),
+('XT004', 'XE004', 400000.00, '2025-06-11', '2025-06-13', 1, 'Thue 3 ngay'),
+('XT005', 'XE005', 550000.00, '2025-06-14', '2025-06-18', 1, 'Thue 4 ngay'),
+('XT006', 'XE006', 700000.00, '2025-06-16', '2025-06-21', 1, 'Thue 5 ngay'),
+('XT007', 'XE007', 350000.00, '2025-06-10', '2025-06-12', 1, 'Thue 2 ngay'),
+('XT008', 'XE008', 650000.00, '2025-06-13', '2025-06-17', 1, 'Thue 4 ngay'),
+('XT009', 'XE009', 400000.00, '2025-06-15', '2025-06-18', 1, 'Thue 3 ngay'),
+('XT010', 'XE010', 450000.00, '2025-06-12', '2025-06-16', 1, 'Thue 4 ngay'),
+('XT011', 'XE011', 600000.00, '2025-06-14', '2025-06-19', 1, 'Thue 5 ngay'),
+('XT012', 'XE012', 750000.00, '2025-06-11', '2025-06-15', 1, 'Thue 4 ngay');
+
+-- Bảng tblDonThue (12 giá trị)
+INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, ngay_dat, ghi_chu, giao_xeNV, tra_donNV, tra_donKH) VALUES
+('DT001', 'TV001', 'XT001', 1, '2025-06-09', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT002', 'TV002', 'XT002', 1, '2025-06-11', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT003', 'TV001', 'XT003', 1, '2025-06-14', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT004', 'TV002', 'XT004', 1, '2025-06-10', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT005', 'TV001', 'XT005', 1, '2025-06-13', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT006', 'TV002', 'XT006', 1, '2025-06-15', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT007', 'TV001', 'XT007', 1, '2025-06-09', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT008', 'TV002', 'XT008', 1, '2025-06-12', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT009', 'TV001', 'XT009', 1, '2025-06-14', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT010', 'TV002', 'XT010', 1, '2025-06-11', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT011', 'TV001', 'XT011', 1, '2025-06-13', 'Dat truoc', FALSE, FALSE, FALSE),
+('DT012', 'TV002', 'XT012', 1, '2025-06-10', 'Dat truoc', FALSE, FALSE, FALSE);
+
+-- Bảng tblHoaDon (12 giá trị)
+INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VALUES
+('HD001', 'DT001', 'TV001', 'Hoa don thue xe'),
+('HD002', 'DT002', 'TV002', 'Hoa don thue xe'),
+('HD003', 'DT003', 'TV001', 'Hoa don thue xe'),
+('HD004', 'DT004', 'TV002', 'Hoa don thue xe'),
+('HD005', 'DT005', 'TV001', 'Hoa don thue xe'),
+('HD006', 'DT006', 'TV002', 'Hoa don thue xe'),
+('HD007', 'DT007', 'TV001', 'Hoa don thue xe'),
+('HD008', 'DT008', 'TV002', 'Hoa don thue xe'),
+('HD009', 'DT009', 'TV001', 'Hoa don thue xe'),
+('HD010', 'DT010', 'TV002', 'Hoa don thue xe'),
+('HD011', 'DT011', 'TV001', 'Hoa don thue xe'),
+('HD012', 'DT012', 'TV002', 'Hoa don thue xe');
+
+-- Bảng tblHDPhu (10 giá trị)
+INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gia) VALUES
+('HDP001', 'HD001', 'TV004', 200000.00),
+('HDP002', 'HD002', 'TV004', 150000.00),
+('HDP003', 'HD003', 'TV004', 300000.00),
+('HDP004', 'HD004', 'TV004', 250000.00),
+('HDP005', 'HD005', 'TV004', 180000.00),
+('HDP006', 'HD006', 'TV004', 220000.00),
+('HDP007', 'HD007', 'TV004', 200000.00),
+('HDP008', 'HD008', 'TV004', 170000.00),
+('HDP009', 'HD009', 'TV004', 190000.00),
+('HDP010', 'HD010', 'TV004', 210000.00);
+
+-- Bảng tblLoi (10 giá trị)
+INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
+('LOI001', 'Loi dong co', 'Dong co khong khoi dong', 1000000.00),
+('LOI002', 'Loi phanh', 'Phanh khong an', 500000.00),
+('LOI003', 'Loi den', 'Den pha khong sang', 200000.00),
+('LOI004', 'Loi dieu hoa', 'Dieu hoa khong lanh', 300000.00),
+('LOI005', 'Loi lốp', 'Lop xe bi xep', 400000.00),
+('LOI006', 'Loi binh ac quy', 'Ac quy het dien', 600000.00),
+('LOI007', 'Loi he thong nhien lieu', 'Nhien lieu bi ro ri', 700000.00),
+('LOI008', 'Loi he thong treo', 'He thong treo rung lac', 450000.00),
+('LOI009', 'Loi can chinh banh', 'Banh xe khong can chinh', 350000.00),
+('LOI010', 'Loi den hau', 'Den hau khong sang', 250000.00);
+
+-- Bảng tblLoiTrenXe (12 giá trị)
+INSERT INTO tblLoiTrenXe (ID, tblXeThueID, tblLoiID, gia, so_luong) VALUES
+('LTX001', 'XT001', 'LOI001', 1000000.00, 1),
+('LTX002', 'XT002', 'LOI002', 500000.00, 1),
+('LTX003', 'XT003', 'LOI003', 200000.00, 1),
+('LTX004', 'XT004', 'LOI004', 300000.00, 1),
+('LTX005', 'XT005', 'LOI005', 400000.00, 1),
+('LTX006', 'XT006', 'LOI006', 600000.00, 1),
+('LTX007', 'XT007', 'LOI007', 700000.00, 1),
+('LTX008', 'XT008', 'LOI008', 450000.00, 1),
+('LTX009', 'XT009', 'LOI009', 350000.00, 1),
+('LTX010', 'XT010', 'LOI010', 250000.00, 1),
+('LTX011', 'XT011', 'LOI001', 1000000.00, 1),
+('LTX012', 'XT012', 'LOI002', 500000.00, 1);
+
+-- Bảng tblDichVu (10 giá trị)
+INSERT INTO tblDichVu (ID, ten, mo_ta, gia) VALUES
+('DV001', 'Rua xe', 'Rua xe ngoai that', 100000.00),
+('DV002', 'Thay dau', 'Thay dau dong co', 500000.00),
+('DV003', 'Kiem tra xe', 'Kiem tra toan bo xe', 200000.00),
+('DV004', 'Thay lop', 'Thay lop xe moi', 400000.00),
+('DV005', 'Ve sinh noi that', 'Ve sinh noi that xe', 300000.00),
+('DV006', 'Can chinh banh', 'Can chinh banh xe', 250000.00),
+('DV007', 'Sua dieu hoa', 'Sua chua he thong dieu hoa', 600000.00),
+('DV008', 'Thay ac quy', 'Thay ac quy moi', 700000.00),
+('DV009', 'Son lai xe', 'Son lai toan bo xe', 2000000.00),
+('DV010', 'Bao duong dinh ky', 'Bao duong xe dinh ky', 800000.00);
+
+-- Bảng tblDVSuDung (12 giá trị)
+INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES
+('DVS001', 'XT001', 'DV001', 1, 100000.00),
+('DVS002', 'XT002', 'DV002', 1, 500000.00),
+('DVS003', 'XT003', 'DV003', 1, 200000.00),
+('DVS004', 'XT004', 'DV004', 1, 400000.00),
+('DVS005', 'XT005', 'DV005', 1, 300000.00),
+('DVS006', 'XT006', 'DV006', 1, 250000.00),
+('DVS007', 'XT007', 'DV007', 1, 600000.00),
+('DVS008', 'XT008', 'DV008', 1, 700000.00),
+('DVS009', 'XT009', 'DV009', 1, 2000000.00),
+('DVS010', 'XT010', 'DV010', 1, 800000.00),
+('DVS011', 'XT011', 'DV001', 1, 100000.00),
+('DVS012', 'XT012', 'DV002', 1, 500000.00);
+
+-- Bảng tblTheChap (10 giá trị)
+INSERT INTO tblTheChap (ID, mo_ta, gia) VALUES
+('TC001', 'The chap CMND', 1000000.00),
+('TC002', 'The chap GPLX', 800000.00),
+('TC003', 'The chap so ho khau', 1200000.00),
+('TC004', 'The chap passport', 1500000.00),
+('TC005', 'The chap xe may', 2000000.00),
+('TC006', 'The chap hop dong lao dong', 900000.00),
+('TC007', 'The chap so bao hiem', 700000.00),
+('TC008', 'The chap giay to nha', 3000000.00),
+('TC009', 'The chap bang dai hoc', 1100000.00),
+('TC010', 'The chap chung minh thu nhap', 1300000.00);
+
+-- Bảng tblTheChapTrenDT (12 giá trị)
+INSERT INTO tblTheChapTrenDT (ID, tblDonThueID, tblTheChapID, so_luong, gia) VALUES
+('TCDT001', 'DT001', 'TC001', 1, 1000000.00),
+('TCDT002', 'DT002', 'TC002', 1, 800000.00),
+('TCDT003', 'DT003', 'TC003', 1, 1200000.00),
+('TCDT004', 'DT004', 'TC004', 1, 1500000.00),
+('TCDT005', 'DT005', 'TC005', 1, 2000000.00),
+('TCDT006', 'DT006', 'TC006', 1, 900000.00),
+('TCDT007', 'DT007', 'TC007', 1, 700000.00),
+('TCDT008', 'DT008', 'TC008', 1, 3000000.00),
+('TCDT009', 'DT009', 'TC009', 1, 1100000.00),
+('TCDT010', 'DT010', 'TC010', 1, 1300000.00),
+('TCDT011', 'DT011', 'TC001', 1, 1000000.00),
+('TCDT012', 'DT012', 'TC002', 1, 800000.00);
+
+-- Bảng tblXeCTV (10 giá trị)
 INSERT INTO tblXeCTV (tblCTVtblThanhVienID, tblXeID) VALUES
-('TV001', 'XE001'),
-('TV002', 'XE002');
+('TV003', 'XE001'),
+('TV003', 'XE002'),
+('TV003', 'XE003'),
+('TV003', 'XE004'),
+('TV003', 'XE005'),
+('TV003', 'XE006'),
+('TV003', 'XE007'),
+('TV003', 'XE008'),
+('TV003', 'XE009'),
+('TV003', 'XE010');
