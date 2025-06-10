@@ -1,4 +1,3 @@
--- Bảng tblThanhVien (5 giá trị)
 INSERT INTO tblThanhVien (ID, username, password, ten, ngay_sinh, email, so_dien_thoai, dia_chi) VALUES
 ('TV001', 'nguyenvana', 'password123', 'Nguyen Van A', '1990-05-15', 'nguyenvana@email.com', '0905123456', '123 Duong 1, Quan 1, TP HCM'),
 ('TV002', 'tranthib', 'pass456', 'Tran Thi B', '1985-10-20', 'tranthib@email.com', '0916234567', '456 Duong 2, Quan 2, TP HCM'),
@@ -6,29 +5,23 @@ INSERT INTO tblThanhVien (ID, username, password, ten, ngay_sinh, email, so_dien
 ('TV004', 'phamvand', 'pass101', 'Pham Van D', '1988-07-30', 'phamvand@email.com', '0938456789', '101 Duong 4, Quan 4, TP HCM'),
 ('TV005', 'hoangvane', 'pass202', 'Hoang Van E', '1980-12-10', 'hoangvane@email.com', '0949567890', '202 Duong 5, Quan 5, TP HCM');
 
--- Bảng tblKhachHang (2 giá trị, tương ứng với TV001, TV002)
 INSERT INTO tblKhachHang (tblThanhVienID) VALUES
 ('TV001'),
 ('TV002');
 
--- Bảng tblCTV (1 giá trị, tương ứng với TV003)
 INSERT INTO tblCTV (tblThanhVienID) VALUES
 ('TV003');
 
--- Bảng tblNVCuaHang (2 giá trị, tương ứng với TV004, TV005)
 INSERT INTO tblNVCuaHang (tblThanhVienID, vi_tri) VALUES
 ('TV004', 'Nhan vien ban hang'),
 ('TV005', 'Quan ly');
 
--- Bảng tblQuanLy (1 giá trị, tương ứng với TV005)
 INSERT INTO tblQuanLy (tblNVCuaHangtblThanhVienID) VALUES
 ('TV005');
 
--- Bảng tblNhanVien (1 giá trị, tương ứng với TV004)
 INSERT INTO tblNhanVien (tblNVCuaHangtblThanhVienID) VALUES
 ('TV004');
 
--- Bảng tblXe (12 giá trị)
 INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, loai_nhien_lieu, gia, bien_so, ghi_chu) VALUES
 ('XE001', 'Toyota', 'Camry', 2020, 'Tu dong', 5, 'Den', 'Xang', 1000000.00, '51A-12345', 'Xe moi'),
 ('XE002', 'Honda', 'Civic', 2019, 'Tu dong', 5, 'Trang', 'Xang', 900000.00, '51B-67890', 'Xe da qua su dung'),
@@ -43,7 +36,6 @@ INSERT INTO tblXe (ID, hang, ten, nam_san_xuat, loai_hop_so, so_cho, mau_sac, lo
 ('XE011', 'Mitsubishi', 'Outlander', 2020, 'Tu dong', 7, 'Trang', 'Xang', 1000000.00, '51K-79135', 'Xe moi'),
 ('XE012', 'Toyota', 'Fortuner', 2021, 'Tu dong', 7, 'Xam', 'Dau', 1400000.00, '51L-80246', 'Xe moi');
 
--- Bảng tblXeThue (12 giá trị)
 INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, ghi_chu) VALUES
 ('XT001', 'XE001', 500000.00, '2025-06-10', '2025-06-15', 1, 'Thue 5 ngay'),
 ('XT002', 'XE002', 450000.00, '2025-06-12', '2025-06-14', 1, 'Thue 3 ngay'),
@@ -58,7 +50,6 @@ INSERT INTO tblXeThue (ID, tblXeID, gia, ngay_bat_dau, ngay_ket_thuc, so_luong, 
 ('XT011', 'XE011', 600000.00, '2025-06-14', '2025-06-19', 1, 'Thue 5 ngay'),
 ('XT012', 'XE012', 750000.00, '2025-06-11', '2025-06-15', 1, 'Thue 4 ngay');
 
--- Bảng tblDonThue (12 giá trị)
 INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, ngay_dat, ghi_chu, giao_xeNV, tra_donNV, tra_donKH) VALUES
 ('DT001', 'TV001', 'XT001', 1, '2025-06-09', 'Dat truoc', FALSE, FALSE, FALSE),
 ('DT002', 'TV002', 'XT002', 1, '2025-06-11', 'Dat truoc', FALSE, FALSE, FALSE),
@@ -73,7 +64,6 @@ INSERT INTO tblDonThue (ID, tblKhachHangtblThanhVienID, tblXeThueID, so_luong, n
 ('DT011', 'TV001', 'XT011', 1, '2025-06-13', 'Dat truoc', FALSE, FALSE, FALSE),
 ('DT012', 'TV002', 'XT012', 1, '2025-06-10', 'Dat truoc', FALSE, FALSE, FALSE);
 
--- Bảng tblHoaDon (12 giá trị)
 INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VALUES
 ('HD001', 'DT001', 'TV001', 'Hoa don thue xe'),
 ('HD002', 'DT002', 'TV002', 'Hoa don thue xe'),
@@ -88,7 +78,6 @@ INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VA
 ('HD011', 'DT011', 'TV001', 'Hoa don thue xe'),
 ('HD012', 'DT012', 'TV002', 'Hoa don thue xe');
 
--- Bảng tblHDPhu (10 giá trị)
 INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gia) VALUES
 ('HDP001', 'HD001', 'TV004', 200000.00),
 ('HDP002', 'HD002', 'TV004', 150000.00),
@@ -101,7 +90,6 @@ INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gi
 ('HDP009', 'HD009', 'TV004', 190000.00),
 ('HDP010', 'HD010', 'TV004', 210000.00);
 
--- Bảng tblLoi (10 giá trị)
 INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
 ('LOI001', 'Loi dong co', 'Dong co khong khoi dong', 1000000.00),
 ('LOI002', 'Loi phanh', 'Phanh khong an', 500000.00),
@@ -114,7 +102,6 @@ INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
 ('LOI009', 'Loi can chinh banh', 'Banh xe khong can chinh', 350000.00),
 ('LOI010', 'Loi den hau', 'Den hau khong sang', 250000.00);
 
--- Bảng tblLoiTrenXe (12 giá trị)
 INSERT INTO tblLoiTrenXe (ID, tblXeThueID, tblLoiID, gia, so_luong) VALUES
 ('LTX001', 'XT001', 'LOI001', 1000000.00, 1),
 ('LTX002', 'XT002', 'LOI002', 500000.00, 1),
@@ -129,7 +116,6 @@ INSERT INTO tblLoiTrenXe (ID, tblXeThueID, tblLoiID, gia, so_luong) VALUES
 ('LTX011', 'XT011', 'LOI001', 1000000.00, 1),
 ('LTX012', 'XT012', 'LOI002', 500000.00, 1);
 
--- Bảng tblDichVu (10 giá trị)
 INSERT INTO tblDichVu (ID, ten, mo_ta, gia) VALUES
 ('DV001', 'Rua xe', 'Rua xe ngoai that', 100000.00),
 ('DV002', 'Thay dau', 'Thay dau dong co', 500000.00),
@@ -142,7 +128,6 @@ INSERT INTO tblDichVu (ID, ten, mo_ta, gia) VALUES
 ('DV009', 'Son lai xe', 'Son lai toan bo xe', 2000000.00),
 ('DV010', 'Bao duong dinh ky', 'Bao duong xe dinh ky', 800000.00);
 
--- Bảng tblDVSuDung (12 giá trị)
 INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES
 ('DVS001', 'XT001', 'DV001', 1, 100000.00),
 ('DVS002', 'XT002', 'DV002', 1, 500000.00),
@@ -157,7 +142,6 @@ INSERT INTO tblDVSuDung (ID, tblXeThueID, tblDichVuID, so_luong, gia) VALUES
 ('DVS011', 'XT011', 'DV001', 1, 100000.00),
 ('DVS012', 'XT012', 'DV002', 1, 500000.00);
 
--- Bảng tblTheChap (10 giá trị)
 INSERT INTO tblTheChap (ID, mo_ta, gia) VALUES
 ('TC001', 'The chap CMND', 1000000.00),
 ('TC002', 'The chap GPLX', 800000.00),
@@ -170,7 +154,6 @@ INSERT INTO tblTheChap (ID, mo_ta, gia) VALUES
 ('TC009', 'The chap bang dai hoc', 1100000.00),
 ('TC010', 'The chap chung minh thu nhap', 1300000.00);
 
--- Bảng tblTheChapTrenDT (12 giá trị)
 INSERT INTO tblTheChapTrenDT (ID, tblDonThueID, tblTheChapID, so_luong, gia) VALUES
 ('TCDT001', 'DT001', 'TC001', 1, 1000000.00),
 ('TCDT002', 'DT002', 'TC002', 1, 800000.00),
@@ -185,7 +168,6 @@ INSERT INTO tblTheChapTrenDT (ID, tblDonThueID, tblTheChapID, so_luong, gia) VAL
 ('TCDT011', 'DT011', 'TC001', 1, 1000000.00),
 ('TCDT012', 'DT012', 'TC002', 1, 800000.00);
 
--- Bảng tblXeCTV (10 giá trị)
 INSERT INTO tblXeCTV (tblCTVtblThanhVienID, tblXeID) VALUES
 ('TV003', 'XE001'),
 ('TV003', 'XE002'),
