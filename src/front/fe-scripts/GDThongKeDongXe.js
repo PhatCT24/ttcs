@@ -15,7 +15,7 @@ async function fetchAndRenderTable() {
     });
     if (!res.ok) {
     const text = await res.text();
-    alert(text); // hoặc xử lý chuyển hướng về trang đăng nhập
+    alert(text); 
     throw new Error(text);
     }
     const data = await res.json();
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             return;
         }
-        // Chuyển trang, truyền dòng xe qua query string
+       
         window.location.href = `GDThongKeXeTheoDong.html?ngaybd=${ngaybd}&ngaykt=${ngaykt}&hangxe=${selectedDongXe}`;
     });
 });

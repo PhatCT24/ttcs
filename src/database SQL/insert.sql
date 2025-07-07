@@ -88,7 +88,7 @@ INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VA
 ('HD011', 'DT011', 'TV001', 'Hoa don thue xe'),
 ('HD012', 'DT012', 'TV002', 'Hoa don thue xe');
 
--- Bảng tblHDPhu (10 giá trị)
+-- Bảng tblHDPhu
 INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gia) VALUES
 ('HDP001', 'HD001', 'TV004', 200000.00),
 ('HDP002', 'HD002', 'TV004', 150000.00),
@@ -101,7 +101,7 @@ INSERT INTO tblHDPhu (ID, tblHoaDonID, tblNhanVientblNVCuaHangtblThanhVienID, gi
 ('HDP009', 'HD009', 'TV004', 190000.00),
 ('HDP010', 'HD010', 'TV004', 210000.00);
 
--- Bảng tblLoi (10 giá trị)
+-- Bảng tblLoi 
 INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
 ('LOI001', 'Loi dong co', 'Dong co khong khoi dong', 1000000.00),
 ('LOI002', 'Loi phanh', 'Phanh khong an', 500000.00),
@@ -114,7 +114,7 @@ INSERT INTO tblLoi (ID, ten, mo_ta, gia) VALUES
 ('LOI009', 'Loi can chinh banh', 'Banh xe khong can chinh', 350000.00),
 ('LOI010', 'Loi den hau', 'Den hau khong sang', 250000.00);
 
--- Bảng tblLoiTrenXe (12 giá trị)
+-- Bảng tblLoiTrenXe 
 INSERT INTO tblLoiTrenXe (ID, tblXeThueID, tblLoiID, gia, so_luong) VALUES
 ('LTX001', 'XT001', 'LOI001', 1000000.00, 1),
 ('LTX002', 'XT002', 'LOI002', 500000.00, 1),

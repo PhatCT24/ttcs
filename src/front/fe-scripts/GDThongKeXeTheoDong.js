@@ -20,7 +20,7 @@ async function fetchAndRenderTable() {
     });
     if (!res.ok) {
         const text = await res.text();
-        alert(text); // hoặc xử lý chuyển hướng về trang đăng nhập
+        alert(text);
         throw new Error(text);
     }
     const data = await res.json();
