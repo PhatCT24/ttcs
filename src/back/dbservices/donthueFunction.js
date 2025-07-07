@@ -89,6 +89,14 @@ export async function addDonThue(idkh, xeThueDichVu, ngaybd, ngaykt, giathuexe, 
                 [theChapTrenDTID, donThueIDs[xeID], idthechap, thechapSL, 0]
             );
         }
+
+        for (const xeID of Object.keys(xeThueDichVu)) {
+            const hoaDonID = await getNextId('tblHoaDon', 'HD');
+            await pool.query(
+                `INSERT INTO tblHoaDon (ID, tblDonThueID, tblKhachHangtblThanhVienID, ghi_chu) VALUES (?, ?, ?, ?)`,
+                [hoaDonID, donThueIDs[xeID], idkh, '']
+            );
+        }
         const tongTien = await tinhTongTienPhaiTra(xeThueDichVu, giathuexe, ngaybd, ngaykt);
         return { success: true, xeThueIDs, donThueIDs, tongTien };
     } catch (error) {
